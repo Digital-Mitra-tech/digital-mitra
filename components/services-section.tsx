@@ -23,18 +23,18 @@ export function ServicesSection() {
               <div
                 key={index}
                 className={`relative bg-white rounded-3xl overflow-hidden transition-all duration-300 flex flex-col ${service.popular
-                  ? "shadow-2xl ring-2 ring-[#5C82A3] scale-105 z-10"
-                  : "shadow-lg hover:shadow-xl hover:-translate-y-2 border border-gray-100"
+                  ? "shadow-[10px_10px_0px] ring-2 ring-black scale-105 z-10"
+                  : "shadow-lg ring-2 ring-black hover:shadow-[10px_10px_0px] hover:-translate-y-2 border border-gray-100"
                   }`}
               >
                 {service.popular && (
-                  <div className="bg-[#5C82A3] text-white text-center py-2 text-sm font-bold tracking-wide uppercase">
+                  <div className="bg-black text-white text-center py-2 text-sm font-bold tracking-wide uppercase">
                     Most Popular
                   </div>
                 )}
 
-                <div className="p-8 flex-1 flex flex-col">
-                  <div className="mb-6 relative h-48 w-full rounded-2xl bg-gray-50 overflow-hidden">
+                <div className=" flex-1 flex flex-col">
+                  <div className="mb-6 bg-[#F1F0EE] relative h-48 w-full overflow-hidden">
                     <Image
                       src={service.image || "/placeholder.svg"}
                       alt={service.title}
@@ -42,36 +42,38 @@ export function ServicesSection() {
                       className="object-contain p-4 transition-transform duration-500 hover:scale-110"
                     />
                   </div>
+                  <div className="p-8">
 
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">{service.title}</h3>
-                  <div className="text-3xl font-bold text-[#5C82A3] mb-4">{service.price}</div>
-                  <p className="text-gray-600 mb-6 leading-relaxed">{service.description}</p>
+                    <h3 className="text-2xl font-bold text-gray-900 mb-2">{service.title}</h3>
+                    <div className="text-3xl font-bold text-[#5C82A3] mb-4">{service.price}</div>
+                    <p className="text-gray-600 mb-6 leading-relaxed">{service.description}</p>
 
-                  <div className="space-y-3 mb-8 flex-1">
-                    {service.features.map((feature, idx) => (
-                      <div key={idx} className="flex items-start gap-3">
-                        <CheckCircle2 className="w-5 h-5 text-[#5C82A3] shrink-0 mt-0.5" />
-                        <span className="text-sm text-gray-700 font-medium">{feature}</span>
-                      </div>
-                    ))}
+                    <div className="space-y-3 mb-8 flex-1">
+                      {service.features.map((feature, idx) => (
+                        <div key={idx} className="flex items-start gap-3">
+                          <CheckCircle2 className="w-5 h-5 text-[#5C82A3] shrink-0 mt-0.5" />
+                          <span className="text-sm text-gray-700 font-medium">{feature}</span>
+                        </div>
+                      ))}
+                    </div>
+
+                    <Link href={`/packages/${service.slug}`} className="w-full">
+                      <Button
+                        className={`w-full h-12 text-lg font-medium rounded-lg transition-all ${service.popular
+                          ? "bg-[#5C82A3] hover:bg-[#4a6b8a] text-white shadow-lg shadow-[#5C82A3]/20"
+                          : "bg-gray-900 hover:bg-black text-white"
+                          }`}
+                      >
+                        Get Started
+                      </Button>
+                    </Link>
                   </div>
-
-                  <Link href={`/packages/${service.slug}`} className="w-full">
-                    <Button
-                      className={`w-full h-12 text-lg font-medium rounded-xl transition-all ${service.popular
-                        ? "bg-[#5C82A3] hover:bg-[#4a6b8a] text-white shadow-lg shadow-[#5C82A3]/20"
-                        : "bg-gray-900 hover:bg-black text-white"
-                        }`}
-                    >
-                      Get Started
-                    </Button>
-                  </Link>
                 </div>
               </div>
             ))}
           </div>
 
-          <div className="mt-16 bg-[#5C82A3] rounded-3xl p-8 md:p-12 shadow-xl relative overflow-hidden">
+          <div className="mt-16 md:mt-48 bg-[#5C82A3] rounded-3xl p-8 md:p-12 shadow-xl relative overflow-hidden">
             <div className="absolute top-0 right-0 opacity-10 pointer-events-none">
               <Image src="/images/get-in-touch.svg" width={300} height={300} alt="Background pattern" />
             </div>

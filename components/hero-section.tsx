@@ -1,7 +1,8 @@
 "use client"
-
+import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 import { Mail, FolderOpen } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { motion } from "framer-motion"
 
 export function HeroSection() {
   return (
@@ -33,15 +34,11 @@ export function HeroSection() {
           </div>
         </div>
 
-        <div className="flex justify-center md:justify-end">
-          <div className="relative w-full max-w-md aspect-square bg-[#FDB927] border-4 border-black rounded-3xl overflow-hidden shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-            <img
-              src="/images/design-mode/63407fbdc2d4ac5270385fd4_home-he.png"
-              alt="Illustrated character avatar"
-              className="w-full h-full object-cover"
-            />
-          </div>
-        </div>
+        <motion.div className='hidden md:block' animate={{ scale: 5, x: 900 }}>
+
+          <iframe src="https://lottie.host/embed/3f866ecc-c514-44e0-85c4-638ccd468dec/rs1CTbrEfU.lottie"></iframe>
+        </motion.div>
+
       </div>
     </section>
   )

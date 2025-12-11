@@ -32,19 +32,19 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-[#FFFFFF]">
-        <Navigation />
-        <HeroSection />
-        {/* <LogoMarquee /> */}
-        <ServicesSection />
-        <SupportSection />
-        <AboutSection />
-        <PortfolioSection />
-        <ExperienceSection />
+      <Navigation />
+      <HeroSection />
+      {/* <LogoMarquee /> */}
+      <ServicesSection />
+      {/* <SupportSection /> */}
+      <AboutSection />
+      <PortfolioSection />
+      {/* <ExperienceSection /> */}
 
-        <TestimonialsSection />
-        <FaqSection />
-        <ArticlesSection />
-        <Footer />
+      <TestimonialsSection />
+      <FaqSection />
+      <ArticlesSection />
+      <Footer />
     </main>
   );
 }
