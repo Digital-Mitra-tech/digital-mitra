@@ -32,7 +32,6 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-[#FFFFFF]">
-      <section>
         <Navigation />
         <HeroSection />
         {/* <LogoMarquee /> */}
@@ -46,7 +45,6 @@ export default function Home() {
         <FaqSection />
         <ArticlesSection />
         <Footer />
-      </section>
     </main>
   );
 }
