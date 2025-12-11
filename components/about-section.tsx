@@ -15,7 +15,7 @@ export function AboutSection() {
         <div className="space-y-6 md:space-y-8">
           <div>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-              Why choose <span className="bg-[#5C82A3] text-white px-3 py-1 inline-block">Digital Mitra?</span>
+              Why choose <span className="bg-[#5C82A3] text-white my-3 px-3 py-2 inline-block border-3 border-black">Digital Mitra?</span>
             </h2>
             <p className="text-gray-600 text-base md:text-lg leading-relaxed">
               We offer fixed transparent pricing, fast delivery, friendly human support, and all essential digital tools

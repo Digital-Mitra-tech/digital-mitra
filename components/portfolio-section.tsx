@@ -29,7 +29,7 @@ export function PortfolioSection() {
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
             Check out our <br />
-            <span className="bg-[#5C82A3] text-white px-3 py-1 inline-block">success stories</span>
+            <span className="bg-[#5C82A3] text-white px-3 py-2 inline-block border-3 border-black">success stories</span>
           </h2>
         </div>
 

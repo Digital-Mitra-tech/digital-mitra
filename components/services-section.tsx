@@ -11,7 +11,7 @@ export function ServicesSection() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Our <span className="text-[#5C82A3]">Packages</span>
+              Our <span className="bg-[#5C82A3] text-white px-3 py-2 inline-block border-3 border-black">Packages</span>
             </h2>
             <p className="text-gray-600 text-lg font-medium max-w-2xl mx-auto">
               Choose the perfect plan to grow your business online. Transparent pricing, no hidden fees.
@@ -73,7 +73,7 @@ export function ServicesSection() {
             ))}
           </div>
 
-          <div className="mt-16 md:mt-48 bg-[#5C82A3] rounded-3xl p-8 md:p-12 shadow-xl relative overflow-hidden">
+          <div className="mt-16 md:mt-48 ring-2 ring-black bg-[#5C82A3] rounded-3xl p-8 md:p-12 shadow-xl relative overflow-hidden">
             <div className="absolute top-0 right-0 opacity-10 pointer-events-none">
               <Image src="/images/get-in-touch.svg" width={300} height={300} alt="Background pattern" />
             </div>
