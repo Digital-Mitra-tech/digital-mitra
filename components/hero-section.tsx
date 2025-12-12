@@ -6,9 +6,9 @@ import { motion } from "framer-motion"
 
 export function HeroSection() {
   return (
-    <section id="home" className="container mx-auto px-4 pt-32 pb-16 md:pb-24">
+    <section id="home" className="h-screen flex items-center container mx-auto px-4 pt-32 pb-16 md:pb-24">
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-        <div className="space-y-6">
+        <div className="space-y-8 md:space-y-6 2xl:space-y-8">
           <h1 className="text-[42px] leading-[50px] md:text-[72px] font-bold md:leading-[85px]">
             Digital <span className="bg-[#5C82A3] border-black border-3 rounded-xs text-white px-3 py-1 inline-block">Mitra</span> your trusted tech
             partner for <span className="bg-[#0D0D0D] md:text-[52px] text-white my-2 px-5 py-1 inline-block">Indian businesses</span>
