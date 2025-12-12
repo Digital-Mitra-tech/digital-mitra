@@ -500,3 +500,4 @@ export const supportPlans = supportPlanDetails.map(sp => ({
   highlight: sp.slug === "mitra-care-plus",
   longDescription: sp.shortDescription
 }));
+

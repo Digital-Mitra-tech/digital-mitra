@@ -24,6 +24,8 @@ export const metadata: Metadata = {
   generator: "v0.app",
 }
 
+import { RetroChatBot } from "@/components/retro-chat-bot"
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -31,7 +33,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${onest.variable} font-sans antialiased overflow-x-hidden`}>{children}</body>
+      <body className={`${onest.variable} font-sans antialiased overflow-x-hidden`}>
+        {children}
+        <RetroChatBot />
+      </body>
     </html>
   )
 }

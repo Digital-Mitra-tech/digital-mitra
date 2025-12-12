@@ -1,20 +1,21 @@
 
 "use client"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { AnimatePresence, motion } from "framer-motion"
 import Image from "next/image"
+import Link from "next/link"
+import { usePathname } from "next/navigation"
 import MenuIcon from "./ui/icon-menu"
 
 const navItems = [
-  { id: "home", label: "Home" },
-  { id: "packages", label: "Packages" },
-  { id: "support", label: "Support" },
-  { id: "about", label: "About" },
-  { id: "faq", label: "FAQ" },
+  { id: "home", label: "Home", href: "/" },
+  { id: "packages", label: "Packages", href: "/packages" },
+  { id: "support", label: "Support", href: "/support" },
+  { id: "about", label: "About", href: "/#about" },
+  { id: "faq", label: "FAQ", href: "/#faq" },
 ]
 
 const menuVariants = {
-
   hidden: {
     height: "3.5rem",
     borderRadius: "19px",
@@ -39,17 +40,18 @@ const itemVariants = {
 export function Navigation() {
   const [activeItem, setActiveItem] = useState("home")
   const [menuOpen, setMenuOpen] = useState(false)
+  const pathname = usePathname()
+
+  // Update active item based on pathname path
+  useEffect(() => {
+    if (pathname === "/packages") setActiveItem("packages")
+    else if (pathname === "/support") setActiveItem("support")
+    else if (pathname === "/") setActiveItem("home")
+    // Hash handling is trickier in SSR, usually effectively 'home' or specific section
+  }, [pathname])
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen)
-  }
-
-  const scrollToSection = (id: string) => {
-    setActiveItem(id)
-    const element = document.getElementById(id)
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" })
-    }
   }
 
   return (
@@ -63,18 +65,19 @@ export function Navigation() {
 
 
           <div className="flex justify-between  items-center gap-1 relative ">
-            <div className="flex items-center gap-2 px-5 cursor-pointer" onClick={() => scrollToSection("home")}>
+            <Link href="/" className="flex items-center gap-2 px-5 cursor-pointer">
               <div className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">
-                <Image src="logos/logo.svg" alt="logo" width={32} height={32} />
+                <Image src="/logos/logo.svg" alt="logo" width={32} height={32} />
               </div>
               <span className="font-bold text-lg">Digital Mitra</span>
-            </div>
+            </Link>
 
 
             {navItems.map((item) => (
-              <button
+              <Link
                 key={item.id}
-                onClick={() => scrollToSection(item.id)}
+                href={item.href}
+                onClick={() => setActiveItem(item.id)}
                 className={`hidden md:block  relative px-6 py-3 text-sm font-medium transition-colors duration-200 z-10 ${activeItem === item.id
                   ? "text-gray-100"
                   : "text-gray-500 hover:text-[#5C82A3] "
@@ -93,7 +96,7 @@ export function Navigation() {
                   />
                 )}
                 {item.label}
-              </button>
+              </Link>
             ))}
             <AnimatePresence>
               {menuOpen && (
@@ -108,7 +111,9 @@ export function Navigation() {
                       exit="hidden"
                       className="cursor-pointer hover:text-blue-600 font-medium"
                     >
-                      <a href={`#${item.id}`}>{item.label}</a>
+                      <Link href={item.href} onClick={() => setMenuOpen(false)}>
+                        {item.label}
+                      </Link>
                     </motion.li>
                   ))}
                 </motion.ul>
