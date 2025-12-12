@@ -1,20 +1,16 @@
+"use client";
 import { packageDetails } from "@/lib/data"
 import Link from "next/link"
 import { ArrowRight, Check } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
-import type { Metadata } from "next"
-
-export const metadata: Metadata = {
-    title: "All Packages | Digital Mitra",
-    description: "Explore our digital growth packages for Indian businesses.",
-}
+import { useSmoothScroll } from "@/hooks/use-smooth-scroll"
 
 export default function PackagesPage() {
+    useSmoothScroll();
+
     return (
         <main className="min-h-screen bg-[#F5F5F5] text-[#0D0D0D] font-sans">
-            <Navigation />
 
             <div className="pt-24 md:pt-32 pb-16 md:pb-24">
                 {/* Header */}

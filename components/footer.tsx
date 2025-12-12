@@ -20,19 +20,20 @@ export function Footer() {
                 />
               </div>
 
-              <div className="w-full flex-1 bg-white border-4 border-black rounded-3xl py-4 px-4 md:py-6 md:px-8 flex flex-col md:flex-row items-center gap-4 md:gap-6">
+              <div className="w-full flex-1 bg-gradient-to-br from-[#5C82A3] via-[#4a6b8a] to-[#3d5770] border-4 border-black rounded-3xl py-6 px-6 md:py-8 md:px-10 flex flex-col md:flex-row items-center gap-4 md:gap-6 shadow-[8px_8px_0px_0px_rgba(255,255,255,0.1)]">
                 <div className="flex-1 text-center md:text-left">
-                  <h3 className="text-xl md:text-2xl font-bold text-black">Stay updated with Digital Mitra</h3>
+                  <h3 className="text-2xl md:text-3xl font-bold text-white mb-1">Stay updated with Digital Mitra! 🚀</h3>
+                  <p className="text-white/90 text-sm md:text-base font-medium">Get the latest updates, tips & exclusive offers</p>
                 </div>
 
                 <div className="relative w-full md:w-auto md:min-w-[400px] lg:min-w-[480px]">
                   <Input
                     type="email"
                     placeholder="Enter your email address"
-                    className="border-4 border-black rounded-xl px-4 md:px-6 h-14 md:h-16 pr-32 md:pr-44 text-base md:text-lg placeholder:text-gray-500"
+                    className="border-3 border-white bg-white/95 rounded-xl px-4 md:px-6 h-14 md:h-16 pr-32 md:pr-44 text-base md:text-lg placeholder:text-gray-500 font-medium focus:bg-white transition-colors"
                   />
-                  <Button className="absolute right-2 top-2 bottom-2 bg-black text-white hover:bg-black/90 rounded-[10px] px-6 md:px-10 text-sm md:text-base font-semibold whitespace-nowrap h-auto">
-                    Subscribe
+                  <Button className="absolute right-2 top-2 bottom-2 bg-black text-white hover:bg-gray-900 rounded-[10px] px-6 md:px-10 text-sm md:text-base font-bold whitespace-nowrap h-auto shadow-[2px_2px_0px_0px_rgba(0,0,0,0.3)] hover:shadow-none hover:translate-y-0.5 transition-all">
+                    Subscribe ✨
                   </Button>
                 </div>
               </div>
@@ -89,64 +90,54 @@ export function Footer() {
               <h3 className="font-bold mb-4">Pages</h3>
               <ul className="space-y-2 text-gray-400 text-sm">
                 <li>
-                  <a href="#" className="hover:text-white transition-colors">
+                  <a href="/" className="hover:text-white transition-colors">
                     Home
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    About
+                  <a href="/packages" className="hover:text-white transition-colors">
+                    Packages
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    Contact
+                  <a href="/support" className="hover:text-white transition-colors">
+                    Support Plans
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    Portfolio
+                  <a href="/#about" className="hover:text-white transition-colors">
+                    About Us
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    Single Project
+                  <a href="/#faq" className="hover:text-white transition-colors">
+                    FAQ
                   </a>
                 </li>
               </ul>
             </div>
 
             <div>
-              <h3 className="font-bold mb-4">Utility Pages</h3>
+              <h3 className="font-bold mb-4">Legal</h3>
               <ul className="space-y-2 text-gray-400 text-sm">
                 <li>
                   <a href="#" className="hover:text-white transition-colors">
-                    Style Guide
+                    Privacy Policy
                   </a>
                 </li>
                 <li>
                   <a href="#" className="hover:text-white transition-colors">
-                    Start Here
+                    Terms of Service
                   </a>
                 </li>
                 <li>
                   <a href="#" className="hover:text-white transition-colors">
-                    404 Not Found
+                    Refund Policy
                   </a>
                 </li>
                 <li>
                   <a href="#" className="hover:text-white transition-colors">
-                    Password protected
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    Licenses
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    Changelog
+                    Cookie Policy
                   </a>
                 </li>
               </ul>

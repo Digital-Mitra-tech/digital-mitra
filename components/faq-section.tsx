@@ -41,7 +41,7 @@ export function FaqSection() {
             <div className="max-w-3xl mx-auto">
                 <div className="text-center mb-12">
                     <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-                        Frequently Asked <span className="bg-[#5C82A3] text-white px-3 py-1 inline-block border-3 border-black ">Questions</span>
+                        Frequently Asked <span className="bg-[#5C82A3] text-white px-3 py-1 inline-block border-3 border-black git ">Questions</span>
                     </h2>
                     <p className="text-gray-600 text-base md:text-lg">
                         Everything you need to know about our services.

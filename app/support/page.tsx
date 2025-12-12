@@ -1,20 +1,15 @@
+"use client";
 import { supportPlanDetails } from "@/lib/data"
 import Link from "next/link"
 import { ArrowRight, Check } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
-import type { Metadata } from "next"
-
-export const metadata: Metadata = {
-    title: "Support Plans | Digital Mitra",
-    description: "Keep your business running smoothly with our dedicated support and maintenance plans.",
-}
+import { useSmoothScroll } from "@/hooks/use-smooth-scroll"
 
 export default function SupportListingPage() {
+    useSmoothScroll();
     return (
         <main className="min-h-screen bg-[#F5F5F5] text-[#0D0D0D] font-sans">
-            <Navigation />
 
             <div className="pt-24 md:pt-32 pb-16 md:pb-24">
                 {/* Header */}
@@ -84,8 +79,8 @@ export default function SupportListingPage() {
                                     <div className="p-6 lg:w-[20%] flex items-center justify-center">
                                         <Link href={`/support/${plan.slug}`} className="w-full">
                                             <Button className={`w-full rounded-lg py-6 text-sm font-bold border-[3px] border-black transition-all ${plan.title === "Mitra Care+"
-                                                    ? "bg-[#5C82A3] text-white hover:bg-[#4a6b8a]"
-                                                    : "bg-white text-black hover:bg-gray-50"
+                                                ? "bg-[#5C82A3] text-white hover:bg-[#4a6b8a]"
+                                                : "bg-white text-black hover:bg-gray-50"
                                                 }`}>
                                                 View Details
                                                 <ArrowRight className="w-4 h-4 ml-2" />
