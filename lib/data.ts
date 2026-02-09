@@ -103,7 +103,7 @@ export const packageDetails = [
     socialShare: {
       title: "Starter Growth Kit by Digital Mitra",
       description: "Launch your business online in under a week — website, CRM, billing & listing.",
-      image: "/og/starter.png"
+      image: "/api/og?slug=starter-growth-kit"
     },
     cta: { primary: "Buy Now", secondary: "Schedule a call", demoAvailable: true },
     refundPolicy:
@@ -206,7 +206,7 @@ export const packageDetails = [
     socialShare: {
       title: "Business Booster — Digital Mitra",
       description: "Priority listing + automation to grow local business revenue.",
-      image: "/og/booster.png"
+      image: "/api/og?slug=business-booster-plan"
     },
     cta: { primary: "Buy Booster", secondary: "Talk to Sales", demoAvailable: true },
     refundPolicy:
@@ -312,7 +312,7 @@ export const packageDetails = [
     socialShare: {
       title: "Mitra MAX by Digital Mitra",
       description: "Complete automation and growth plan for scaling businesses.",
-      image: "/og/max.png"
+      image: "/api/og?slug=mitra-max-suite"
     },
     cta: { primary: "Start Mitra MAX", secondary: "Book a Strategy Call", demoAvailable: true },
     refundPolicy:
@@ -359,6 +359,11 @@ export const supportPlanDetails = [
     seoMeta: {
       title: "Mitra Care — Affordable Maintenance | Digital Mitra",
       description: "Basic maintenance plan for business websites: monitoring, backups and essential fixes. Affordable monthly support."
+    },
+    socialShare: {
+      title: "Mitra Care — Affordable Maintenance | Digital Mitra",
+      description: "Basic maintenance plan for business websites.",
+      image: "/api/og?slug=mitra-care"
     }
   },
 
@@ -398,6 +403,11 @@ export const supportPlanDetails = [
     seoMeta: {
       title: "Mitra Care+ — Priority Support | Digital Mitra",
       description: "Priority monthly support plan with website edits, CRM help and faster response times. Ideal for active businesses."
+    },
+    socialShare: {
+      title: "Mitra Care+ — Priority Support | Digital Mitra",
+      description: "Priority monthly support plan with website edits and CRM help.",
+      image: "/api/og?slug=mitra-care-plus"
     }
   },
 
@@ -436,6 +446,11 @@ export const supportPlanDetails = [
     seoMeta: {
       title: "Mitra Pro — Growth Support | Digital Mitra",
       description: "Full-service monthly support with unlimited small updates, SEO optimization and a dedicated account manager."
+    },
+    socialShare: {
+      title: "Mitra Pro — Growth Support | Digital Mitra",
+      description: "Full-service monthly support with unlimited small updates and SEO optimization.",
+      image: "/api/og?slug=mitra-pro"
     }
   },
 
@@ -471,6 +486,11 @@ export const supportPlanDetails = [
     seoMeta: {
       title: "Mitra MAX Support — Premium | Digital Mitra",
       description: "Premium monthly support for businesses that want strategic guidance, AI maintenance and top-tier SLAs.",
+    },
+    socialShare: {
+      title: "Mitra MAX Support — Premium | Digital Mitra",
+      description: "Premium monthly support for businesses that want strategic guidance.",
+      image: "/api/og?slug=mitra-max-support"
     }
   }
 ];
