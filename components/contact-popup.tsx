@@ -90,8 +90,8 @@ export function ContactPopup({ isOpen, onClose }: ContactPopupProps) {
                                         <div className="w-8 h-8 rounded-lg bg-[#5C82A3]/10 flex items-center justify-center text-[#5C82A3]">
                                             <Phone className="w-4 h-4" />
                                         </div>
-                                        <a href="tel:+919000057810" className="hover:text-[#5C82A3] transition-colors">
-                                            +91-9000057810
+                                        <a href="tel:+918289835902" className="hover:text-[#5C82A3] transition-colors">
+                                            +91-8289835902
                                         </a>
                                     </div>
                                 </div>

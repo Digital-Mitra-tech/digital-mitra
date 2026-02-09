@@ -13,7 +13,7 @@ const navItems = [
   { id: "home", label: "Home", href: "/" },
   { id: "packages", label: "Packages", href: "/packages" },
   { id: "support", label: "Support", href: "/support" },
-  { id: "about", label: "About", href: "/#about" },
+  { id: "about", label: "About", href: "/about" },
 ]
 
 const menuVariants = {
@@ -51,6 +51,7 @@ export function Navigation() {
     if (pathname === "/packages") setActiveItem("packages")
     else if (pathname === "/support") setActiveItem("support")
     else if (pathname === "/about") setActiveItem("about")
+
     else if (pathname === "/") {
       setActiveItem("home")
     }

@@ -22,6 +22,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     return {
         title: plan.seoMeta.title,
         description: plan.seoMeta.description,
+        openGraph: {
+            title: plan.seoMeta.title, // Fallback to seoMeta since socialShare might be optional in type
+            description: plan.seoMeta.description,
+            // @ts-ignore - Assuming socialShare exists now
+            images: plan.socialShare?.image ? [{ url: plan.socialShare.image }] : undefined
+        }
     }
 }
 
