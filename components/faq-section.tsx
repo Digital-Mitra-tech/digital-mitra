@@ -7,6 +7,7 @@ import {
     AccordionItem,
     AccordionTrigger,
 } from "@/components/ui/accordion"
+import { motion } from "framer-motion"
 
 export function FaqSection() {
     const faqs = [
@@ -37,30 +38,56 @@ export function FaqSection() {
     ]
 
     return (
-        <section id="faq" className="container mx-auto px-4 py-16 md:py-24">
-            <div className="max-w-3xl mx-auto">
-                <div className="text-center mb-12">
-                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-                        Frequently Asked <span className="bg-[#5C82A3] text-white px-3 py-1 inline-block border-3 border-black git ">Questions</span>
-                    </h2>
-                    <p className="text-gray-600 text-base md:text-lg">
-                        Everything you need to know about our services.
-                    </p>
-                </div>
+        <section id="faq" className="py-24 bg-white relative overflow-hidden">
+            <div className="container mx-auto px-4 relative z-10">
+                <div className="max-w-3xl mx-auto">
+                    <div className="text-center mb-16">
+                        <motion.div
+                            initial={{ opacity: 0, y: 10 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            className="inline-flex items-center px-3 py-1.5 bg-[#5C82A3] text-white rounded-full text-[10px] font-black uppercase tracking-widest mb-6 border-2 border-black"
+                        >
+                            Got Questions?
+                        </motion.div>
+                        
+                        <motion.h2 
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            className="text-4xl md:text-5xl font-black mb-6 tracking-tighter leading-[0.9]"
+                        >
+                            FREQUENTLY ASKED <br />
+                            <span className="text-[#5C82A3]">QUESTIONS.</span>
+                        </motion.h2>
+                    </div>
 
-                <Accordion type="single" collapsible className="w-full">
-                    {faqs.map((faq, index) => (
-                        <AccordionItem key={index} value={`item-${index}`} className="border-2 px-5 border-black mb-4 hover:shadow-[10px_10px_0px] transition-all duration-300 hover:-translate-y-2">
-                            <AccordionTrigger className="text-lg md:text-xl font-bold text-[#0B0B0B] hover:no-underline py-4 md:py-6">
-                                {faq.question}
-                            </AccordionTrigger>
-                            <AccordionContent className="text-[#393939] text-base md:text-lg pb-6">
-                                {faq.answer}
-                            </AccordionContent>
-                        </AccordionItem>
-                    ))}
-                </Accordion>
+                    <Accordion type="single" collapsible className="w-full space-y-4">
+                        {faqs.map((faq, index) => (
+                            <motion.div
+                                key={index}
+                                initial={{ opacity: 0, y: 10 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ delay: index * 0.05 }}
+                                viewport={{ once: true }}
+                            >
+                                <AccordionItem 
+                                    value={`item-${index}`} 
+                                    className="border-[3px] border-black rounded-2xl bg-white shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all overflow-hidden"
+                                >
+                                    <AccordionTrigger className="text-lg font-black text-[#0B0B0B] hover:no-underline px-6 py-6 uppercase tracking-tight text-left">
+                                        {faq.question}
+                                    </AccordionTrigger>
+                                    <AccordionContent className="text-gray-600 font-bold text-sm px-6 pb-6 leading-tight">
+                                        {faq.answer}
+                                    </AccordionContent>
+                                </AccordionItem>
+                            </motion.div>
+                        ))}
+                    </Accordion>
+                </div>
             </div>
         </section>
     )
 }
+

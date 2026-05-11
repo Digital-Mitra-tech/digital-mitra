@@ -9,7 +9,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
         "",
         "/about",
         "/packages",
-        "/support",
         "/terms-of-service",
         "/privacy-policy",
         "/refund-policy",
@@ -29,13 +28,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
         priority: 0.9,
     }));
 
-    // Dynamic routes from supportPlanDetails
-    const supportRoutes = supportPlanDetails.map((plan) => ({
-        url: `${baseUrl}/support/${plan.slug}`,
-        lastModified: new Date(),
-        changeFrequency: "weekly" as const,
-        priority: 0.9,
-    }));
-
-    return [...staticRoutes, ...packageRoutes, ...supportRoutes];
+    return [...staticRoutes, ...packageRoutes];
 }

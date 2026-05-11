@@ -8,11 +8,13 @@ import { usePathname } from "next/navigation"
 import MenuIcon from "./ui/icon-menu"
 import { ContactPopup } from "@/components/contact-popup"
 import { Mail } from "lucide-react"
+import { useContact } from "@/context/contact-context"
 
 const navItems = [
   { id: "home", label: "Home", href: "/" },
+  { id: "services", label: "Services", href: "/services" },
   { id: "packages", label: "Packages", href: "/packages" },
-  { id: "support", label: "Support", href: "/support" },
+  { id: "blog", label: "Blog", href: "/blog" },
   { id: "about", label: "About", href: "/about" },
 ]
 
@@ -41,14 +43,16 @@ const itemVariants = {
 export function Navigation() {
   const [activeItem, setActiveItem] = useState("home")
   const [menuOpen, setMenuOpen] = useState(false)
-  const [contactPopupOpen, setContactPopupOpen] = useState(false)
+  const { openContactPopup } = useContact()
   const [indicatorStyle, setIndicatorStyle] = useState({ left: 0, width: 0, opacity: 0 })
   const itemRefs = useRef<{ [key: string]: HTMLAnchorElement | null }>({})
   const pathname = usePathname()
 
   // Update active item based on pathname path
   useEffect(() => {
-    if (pathname === "/packages") setActiveItem("packages")
+    if (pathname === "/services") setActiveItem("services")
+    else if (pathname === "/packages") setActiveItem("packages")
+    else if (pathname === "/blog" || pathname.startsWith("/blog/")) setActiveItem("blog")
     else if (pathname === "/support") setActiveItem("support")
     else if (pathname === "/about") setActiveItem("about")
 
@@ -133,6 +137,10 @@ export function Navigation() {
     }
   }
 
+  if (pathname.startsWith("/digitalmitra-dash") || pathname.startsWith("/login")) {
+    return null
+  }
+
   return (
     <motion.div
       initial={{ y: -100 }}
@@ -151,7 +159,14 @@ export function Navigation() {
           <div className="flex justify-between  items-center gap-1 relative ">
             <Link href="/" className="flex items-center gap-2 px-5 cursor-pointer z-20">
               <div className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">
-                <Image src="/logos/logo.svg" alt="logo" width={32} height={32} />
+                <Image 
+                  src="/logos/logo.svg" 
+                  alt="logo" 
+                  width={32} 
+                  height={32} 
+                  priority
+                  style={{ width: 'auto' }}
+                />
               </div>
               <span className="font-bold text-lg">Digital Mitra</span>
             </Link>
@@ -212,7 +227,7 @@ export function Navigation() {
 
             {/* Contact Button */}
             <button
-              onClick={() => setContactPopupOpen(true)}
+              onClick={openContactPopup}
               className="hidden md:flex items-center gap-2 mr-0.5 px-5 py-2 bg-[#5C82A3] text-white rounded-lg font-bold text-sm hover:bg-gray-800 transition-colors border-2 border-black  hover:translate-y-0.5 z-20"
             >
               <Mail className="w-4 h-4" />
@@ -224,8 +239,6 @@ export function Navigation() {
         </motion.nav>
       </div>
 
-      {/* Contact Popup */}
-      <ContactPopup isOpen={contactPopupOpen} onClose={() => setContactPopupOpen(false)} />
     </motion.div>
   )
 }

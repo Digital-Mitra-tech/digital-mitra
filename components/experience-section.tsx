@@ -1,86 +1,101 @@
-import { FileText } from "lucide-react"
+"use client"
+
+import { FileText, Check } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
+import { useContact } from "@/context/contact-context"
+import { motion } from "framer-motion"
 
 export function ExperienceSection() {
+  const { openContactPopup } = useContact()
   const experiences = [
     {
       period: "2023 - Present",
-      title: "Serving 500+ Businesses",
-      description:
-        "Expanded our reach across India, helping diverse businesses from startups to enterprises achieve their digital goals.",
-      icon: "/images/agency.png",
+      title: "500+ Businesses",
+      description: "Scaling digital operations across India.",
+      color: "#5C82A3"
     },
     {
       period: "2021 - 2023",
       title: "Building Excellence",
-      description:
-        "Established Digital Mitra's core services and built a team of expert developers, designers, and marketers.",
-      icon: "/images/company.png",
+      description: "Establishing core tech & branding teams.",
+      color: "#FFE66D"
     },
     {
       period: "2020 - 2021",
       title: "Rapid Growth",
-      description:
-        "Launched multiple successful projects and refined our approach based on client feedback and market demands.",
-      icon: "/images/busines.png",
+      description: "Refining our approach for Indian startups.",
+      color: "#FF6B6B"
     },
     {
       period: "2018 - 2020",
       title: "Founding Vision",
-      description:
-        "Started Digital Mitra with a mission to empower Indian businesses with affordable, world-class technology solutions.",
-      icon: "/images/startup.png",
+      description: "Democratizing tech for Indian entrepreneurs.",
+      color: "#4ECDC4"
     },
   ]
 
   return (
-    <section className="bg-black py-16 md:py-24">
-      <div className="container mx-auto px-4">
-        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-start">
-          <div className="text-white pt-0 md:pt-12 md:sticky md:top-12 self-start">
-            <h2 className="text-3xl md:text-4xl lg:text-6xl font-bold mb-6 md:mb-8 leading-[1.3]">
-              Our <span className="bg-[#5C82A3] text-white px-3 py-1 inline-block">journey</span>
+    <section className="bg-black py-24 relative overflow-hidden">
+      {/* Background Decor */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-[#5C82A3]/10 rounded-full blur-[100px]"></div>
+      
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-start">
+          <motion.div 
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="text-white lg:sticky lg:top-32"
+          >
+            <div className="inline-flex items-center px-3 py-1.5 bg-[#5C82A3] text-white rounded-full text-[10px] font-black uppercase tracking-widest mb-6 border-2 border-[#5C82A3]">
+              Our Journey
+            </div>
+            
+            <h2 className="text-4xl md:text-6xl font-black mb-6 tracking-tighter leading-[0.9]">
+              CHARTING THE <br />
+              <span className="text-[#5C82A3]">DIGITAL FUTURE.</span>
             </h2>
-            <p className="text-gray-400 mb-8 md:mb-10 leading-relaxed text-base md:text-lg">
-              From a small startup vision to serving 500+ businesses across India, Digital Mitra has grown as a trusted
-              technology partner.
+            
+            <p className="text-gray-400 text-lg md:text-xl font-bold leading-tight mb-8">
+              From a vision to empower Bharat, to serving over 500 businesses. We build the infrastructure that drives success.
             </p>
-            <Button className="bg-white text-black hover:bg-gray-50 rounded-lg py-5 px-8 md:py-[22px] md:px-[62px] text-base md:text-lg font-semibold h-auto w-full sm:w-auto sm:min-w-[240px]">
-              <FileText className="w-5 h-5" />
-              Download our story
-            </Button>
-          </div>
+
+            <div className="relative group w-fit">
+              <div className="absolute inset-0 bg-white/10 rounded-xl translate-x-1 translate-y-1 group-hover:translate-x-2 group-hover:translate-y-2 transition-transform"></div>
+              <button 
+                onClick={openContactPopup}
+                className="relative bg-white text-black hover:bg-white h-auto py-5 px-10 text-lg font-black rounded-xl border-[3px] border-white transition-transform group-hover:-translate-x-0.5 group-hover:-translate-y-0.5 flex items-center justify-center gap-3 appearance-none cursor-pointer"
+              >
+                <FileText className="w-5 h-5" />
+                Download our story
+              </button>
+            </div>
+          </motion.div>
 
           <div className="space-y-6">
             {experiences.map((exp, index) => (
-              <div key={index} className="bg-white border-4 border-black rounded-3xl min-h-[220px] md:min-h-[240px]">
-                <div className="flex items-center justify-between mb-4 md:mb-6 pt-6 md:pt-8 px-6 md:px-8">
-                  <div className="text-base md:text-[22px] leading-tight md:leading-[34px] font-bold text-[#0B0B0B]">
-                    {exp.period}
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="group relative"
+              >
+                <div className="absolute inset-0 bg-[#5C82A3] rounded-2xl translate-x-1.5 translate-y-1.5 group-hover:translate-x-3 group-hover:translate-y-3 transition-transform opacity-20"></div>
+                
+                <div className="relative bg-white border-[3px] border-black rounded-2xl p-6 transition-transform group-hover:-translate-x-0.5 group-hover:-translate-y-0.5">
+                  <div className="flex items-center justify-between mb-4 pb-4 border-b-2 border-black/5">
+                    <span className="text-xs font-black uppercase tracking-widest text-[#5C82A3]">{exp.period}</span>
+                    <div className="w-8 h-8 rounded-lg border-2 border-black flex items-center justify-center" style={{ backgroundColor: exp.color }}>
+                      <Check className="w-4 h-4 text-black" />
+                    </div>
                   </div>
-                  <div className="rounded-full border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-                    <Image
-                      src={exp.icon || "/placeholder.svg"}
-                      alt={exp.title}
-                      width={48}
-                      height={48}
-                      className="w-10 h-10 md:w-12 md:h-12 flex-shrink-0 rounded-full"
-                    />
-                  </div>
+                  <h3 className="text-xl font-black mb-1 uppercase tracking-tight">{exp.title}</h3>
+                  <p className="text-gray-600 font-bold text-sm leading-tight">{exp.description}</p>
                 </div>
-
-                <div className="border-t-[3px] border-black mb-4 md:mb-6"></div>
-
-                <div className="px-6 md:px-8 pb-6 md:pb-8">
-                  <h3 className="text-xl md:text-[28px] leading-tight md:leading-[40px] font-bold text-[#0B0B0B] mb-2 md:mb-3">
-                    {exp.title}
-                  </h3>
-                  <p className="text-[#393939] text-base md:text-[20px] leading-relaxed md:leading-[32px]">
-                    {exp.description}
-                  </p>
-                </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -88,3 +103,4 @@ export function ExperienceSection() {
     </section>
   )
 }
+

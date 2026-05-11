@@ -6,321 +6,254 @@
 
 export const packageDetails = [
   {
-    slug: "starter-growth-kit",
-    title: "Starter Growth Kit",
-    price: "₹7,999",
-    mrp: "₹14,999",
-    shortDescription:
-      "Everything a new business needs to launch online quickly: website, CRM, billing, domain, and a free VyapariHub listing.",
+    slug: "launch-plan",
+    title: "Launch Plan",
+    price: "₹12,999",
+    isRecurring: false,
+    mrp: "",
+    shortDescription: "Everything a new business needs to launch online quickly: 1-page website, social media, and Google Business Profile setup.",
     hero: {
-      headline: "Launch your business online in 5–7 days",
-      subHeadline:
-        "Professional 7-page website, CRM & billing setup, SEO basics and a free VyapariHub listing — fast, simple, affordable.",
-      ctaPrimary: "Get Starter Kit",
+      headline: "Launch your business online in 7 days",
+      subHeadline: "Professional 1-page website, brand identity, and social media setup — fast, simple, affordable.",
+      ctaPrimary: "Get Launch Plan",
       ctaSecondary: "Request Demo",
     },
     whatsIncluded: [
-      { title: "7-page responsive website", detail: "Home, About, Services, Contact, Gallery, Blog, Landing/Offer page. Mobile-first design." },
-      { title: "CRM access", detail: "Basic CRM: lead capture form, contact list, lead status, manual notes." },
-      { title: "Billing software", detail: "Generate invoices, GST fields, download/print, basic payment link integration." },
-      { title: "Free VyapariHub listing", detail: "Standard listing with category, contact, location & photos." },
-      { title: "Domain", detail: ".com or .in domain registration (1 year) — domain name purchase cost included up to ₹799" },
-      { title: "On-page SEO", detail: "Meta tags, schema basics, sitemap submission, Google indexing request." },
-      { title: "Banner design", detail: "1 custom marketing banner (desktop + mobile)." },
-      { title: "1 year support", detail: "Email & ticket support (48-72 hour response SLA for Starter)." }
+      { title: "1-page professional website", detail: "Custom designed one-page website." },
+      { title: "Logo + brand identity", detail: "Professional logo and brand guidelines." },
+      { title: "Instagram & Facebook setup", detail: "Complete profile setup for social media." },
+      { title: "WhatsApp Business setup", detail: "Business profile and automated replies." },
+      { title: "Google Business Profile setup", detail: "Local SEO listing." },
+      { title: "5 content posts", detail: "Initial content for your social media." }
     ],
     whatsNotIncluded: [
-      "Third-party paid integrations (paid Google Ads spend, premium plugins/licenses)",
-      "Custom backend integrations or heavy custom development",
-      "Ongoing content creation (blogging beyond setup)"
+      "Ongoing ad spend",
+      "Monthly maintenance",
+      "Advanced CRM"
     ],
     benefits: [
-      "Go-live quickly with a professional online presence",
-      "Capture and manage leads without spreadsheets",
-      "One vendor for website + CRM + billing"
+      "Quick 7-day delivery",
+      "All-in-one setup",
+      "Professional brand identity"
     ],
     targetAudience: [
-      "Local shops & traders",
-      "Small service providers (plumbers, salons, tutors)",
-      "New restaurants & cafes",
-      "Freelancers beginning to accept online bookings"
+      "New businesses",
+      "Freelancers",
+      "Local shops"
     ],
     pricingBreakdown: {
       lumpsum: [
-        { label: "Package fee", amount: "₹7,999" },
-        { label: "Domain (included)", amount: "₹0 (up to ₹799)" },
-        { label: "Hosting (1st year)", amount: "Included (basic tier)" }
+        { label: "One-time fee", amount: "₹12,999" }
       ],
-      optionalAddons: [
-        { slug: "extra-email", title: "Additional Email IDs", price: "₹299/year per ID" },
-        { slug: "premium-hosting", title: "Faster Hosting", price: "₹999/year" }
-      ]
+      optionalAddons: []
     },
-    paymentOptions: ["UPI", "Netbanking", "Card (Razorpay)", "Offline Bank Transfer"],
+    paymentOptions: ["UPI", "Netbanking", "Card"],
     timeline: {
-      totalDays: "5–7",
+      totalDays: "7",
       steps: [
-        { dayRange: "Day 0–1", activity: "Agreement, domain & hosting details, project brief form" },
-        { dayRange: "Day 2–4", activity: "Design & development: template selection, content placement" },
-        { dayRange: "Day 5", activity: "Internal QA, client review" },
-        { dayRange: "Day 6–7", activity: "Go-live & initial training" }
+        { dayRange: "Day 1", activity: "Brand Discovery & Strategy: Finalize logo identity and social media details" },
+        { dayRange: "Day 2-4", activity: "Design & Content Preparation: Create 1-page website layout and draft content posts" },
+        { dayRange: "Day 5", activity: "Development & Integration: Setup website, WhatsApp Business, and social profiles" },
+        { dayRange: "Day 6", activity: "Optimization & Quality Check: Google Business Profile setup and testing" },
+        { dayRange: "Day 7", activity: "Final Handover & Launch: Go-live and staff walkthrough" }
       ]
     },
     onboardingChecklist: [
-      "Business name and logo (if available)",
-      "Preferred domain options (3 choices)",
-      "High-resolution photos (3–8)",
-      "Service/product list with short descriptions",
-      "GST/Business details for billing setup",
-      "Access to business Google account (optional)"
+      "Business name and details",
+      "Preferred domain",
+      "Images and content"
     ],
-    deliveryNotes:
-      "Starter deliveries use high-quality templates with light customisation. Content writing is limited to short sections — consider an add-on for content creation.",
+    deliveryNotes: "Delivered in 7 working days.",
     technicalStack: {
-      cms: "WordPress / Headless static option on request",
-      hosting: "Managed Linux hosting (cPanel) or equivalent",
-      crm: "Lightweight productized CRM (hosted SaaS instance)",
-      billing: "SaaS billing module with GST support"
+      cms: "Modern web stack",
+      hosting: "Included"
     },
     supportSLA: {
-      includedSLA: "Email/ticket support — 48–72 hour response",
-      responseHours: "Mon–Sat 9:30–18:30 IST",
-      escalation: "Priority paid upgrades available"
+      includedSLA: "Basic support during setup"
     },
-    faqs: [
-      { q: "Can I upgrade later?", a: "Yes. You can upgrade to Booster or MAX at any time; we migrate content and settings." },
-      { q: "Who owns the domain?", a: "Domains are purchased in your name; we assist with DNS and renewals." },
-      { q: "What content do you write?", a: "We help craft short descriptions and headlines. Full content packs are available as an add-on." }
-    ],
-    testimonials: [
-      { name: "Rekha Sharma, Tailor", city: "Kochi", quote: "Digital Mitra took my shop online in 6 days. I started getting calls the same week." }
-    ],
+    faqs: [] as { q: string; a: string }[],
+    testimonials: [] as { name: string; city: string; quote: string }[],
     seoMeta: {
-      title: "Starter Growth Kit — Website + CRM | Digital Mitra",
-      description: "Launch a professional 7-page website, CRM and billing with a free VyapariHub listing. Go live in 5–7 days. Affordable for Indian small businesses.",
-      keywords: ["starter website india", "small business website", "crm for small business", "Digital Mitra starter"]
+      title: "Launch Plan | Digital Mitra",
+      description: "Launch your business online with our 1-page professional website and social media setup.",
+      keywords: ["launch plan", "website setup"]
     },
     socialShare: {
-      title: "Starter Growth Kit by Digital Mitra",
-      description: "Launch your business online in under a week — website, CRM, billing & listing.",
-      image: "/api/og?slug=starter-growth-kit"
+      title: "Launch Plan | Digital Mitra",
+      description: "Launch your business online.",
+      image: "/api/og?slug=launch-plan"
     },
-    cta: { primary: "Buy Now", secondary: "Schedule a call", demoAvailable: true },
-    refundPolicy:
-      "If we are unable to deliver the agreed core deliverables within the maximum timeline due to our fault, you may request a partial refund. Custom refund terms defined in the agreement.",
-    terms: "Standard T&Cs apply. Domain and third-party costs may be billed separately if outside included limits."
+    cta: { primary: "Buy Now", secondary: "Schedule a call", demoAvailable: false },
+    refundPolicy: "Standard refund policy.",
+    terms: "Standard T&Cs apply."
   },
-
   {
-    slug: "business-booster-plan",
-    title: "Business Booster Plan",
-    price: "₹14,999",
-    mrp: "₹29,999",
-    shortDescription:
-      "Priority visibility, more pages and automation — perfect for growing businesses that want a stronger digital footprint and better customer management.",
+    slug: "monthly-growth-plan",
+    title: "Monthly Growth Plan",
+    price: "₹14,999/mo",
+    isRecurring: true,
+    mrp: "",
+    shortDescription: "Meta Ads Upsell: ₹6,000/month management fee (Client ad budget separate).",
     hero: {
-      headline: "Grow faster with priority placement and automation",
-      subHeadline:
-        "Expanded website, CRM automations, social presence setup, and monthly SEO reporting to fuel steady growth.",
-      ctaPrimary: "Get Booster",
-      ctaSecondary: "Compare Plans"
+      headline: "Consistent growth with monthly content and updates",
+      subHeadline: "Website updates, 12 content pieces/month, WhatsApp lead system, and more.",
+      ctaPrimary: "Get Growth Plan",
+      ctaSecondary: "Compare Plans",
     },
     whatsIncluded: [
-      { title: "12–15 page premium website", detail: "Service pages, category pages, blog, gallery, offers, and booking/contact flows." },
-      { title: "Priority VyapariHub listing", detail: "Featured placement & category boost for higher visibility." },
-      { title: "Google Business Profile setup", detail: "Complete GBP setup with photos, services, and verification guidance." },
-      { title: "Social media setup", detail: "Facebook & Instagram profiles fully setup with branding and initial posts." },
-      { title: "3 custom email IDs", detail: "Email setup via G Suite/Workspace or hosted email." },
-      { title: "CRM automations", detail: "WhatsApp reminders, automated follow-ups, lead tagging & templated replies." },
-      { title: "Monthly SEO reports", detail: "Traffic snapshot, keyword tracking, and quick fixes list." },
-      { title: "Blog section + basic content templates", detail: "Setup plus 1 content template for posts." },
-      { title: "3-month creative pack", detail: "6 social posts per month (9 posts total) for 3 months." },
-      { title: "Payment link / UPI integration", detail: "Quick-pay links; optional payment gateway integration." }
+      { title: "Website updates", detail: "Regular maintenance and updates." },
+      { title: "12 content pieces/month", detail: "Social media and blog content." },
+      { title: "Monthly content calendar", detail: "Planned content strategy." },
+      { title: "WhatsApp lead system", detail: "Lead capture and management." },
+      { title: "Monthly performance report", detail: "Analytics and insights." },
+      { title: "Strategy review call", detail: "Monthly consultation." },
+      { title: "Meta Ads Upsell", detail: "₹6,000/month management fee (Ad budget separate)." }
     ],
     whatsNotIncluded: [
-      "Ongoing ad spend (Google / FB)",
-      "Custom mobile apps",
-      "Extensive custom integrations requiring dev hours"
+      "Client ad budget",
+      "Major website redesigns"
     ],
     benefits: [
-      "Higher local visibility via VyapariHub priority listing",
-      "Automated lead follow-ups to increase conversions",
-      "Professional social presence to attract customers"
+      "Consistent online presence",
+      "Lead generation",
+      "Strategic growth"
     ],
     targetAudience: [
-      "Established local businesses scaling up",
-      "Clinics, salons, restaurants wanting bookings",
-      "Retailers aiming for online ordering"
+      "Growing businesses",
+      "Service providers"
     ],
     pricingBreakdown: {
       lumpsum: [
-        { label: "Package fee", amount: "₹14,999" },
-        { label: "Priority listing setup", amount: "Included" },
-        { label: "Creative pack", amount: "Included (3 months)" }
+        { label: "Monthly fee", amount: "₹14,999/month" }
       ],
       optionalAddons: [
-        { slug: "local-seo", title: "Local SEO (monthly)", price: "₹4,999/month" },
-        { slug: "extra-posts", title: "Extra Social Posts", price: "₹999/month for 6 posts" }
+        { slug: "meta-ads", title: "Meta Ads Management", price: "₹6,000/month" }
       ]
     },
-    paymentOptions: ["Card", "UPI", "Netbanking", "EMI (partner)"],
+    paymentOptions: ["Card", "UPI"],
     timeline: {
-      totalDays: "7–10",
+      totalDays: "Monthly",
       steps: [
-        { dayRange: "Day 0–2", activity: "Detailed kickoff & data collection (brand kit, content assets)" },
-        { dayRange: "Day 3–6", activity: "Design & development, GBP & social setup" },
-        { dayRange: "Day 7–9", activity: "Automation rules and CRM templates" },
-        { dayRange: "Day 10", activity: "Go-live, training & report setup" }
+        { dayRange: "Week 1", activity: "Strategy & Planning: Monthly content calendar and strategy review call" },
+        { dayRange: "Week 2", activity: "Content Production: Creation of 12 content pieces and website updates" },
+        { dayRange: "Week 3", activity: "Campaign Execution: WhatsApp lead system monitoring and ad management" },
+        { dayRange: "Week 4", activity: "Review & Reporting: Monthly performance report and optimization" }
       ]
     },
     onboardingChecklist: [
-      "Brand assets (logo, fonts, color codes)",
-      "List of services/products with prices",
-      "3–10 high-quality images",
-      "Payment details for gateway setup",
-      "Google account for GBP verification"
+      "Access to social accounts",
+      "Brand assets",
+      "Goals and KPIs"
     ],
-    deliveryNotes:
-      "Priority work queue for Booster clients. Includes light copy support; extended content creation recommended as an add-on for SEO-heavy industries.",
+    deliveryNotes: "Ongoing monthly service.",
     technicalStack: {
-      cms: "WordPress / React-based static if requested",
-      crm: "Hosted / third-party CRM with automations",
-      analytics: "Google Analytics + basic dashboard"
+      cms: "Existing website",
+      analytics: "Google Analytics & Meta Pixel"
     },
     supportSLA: {
-      includedSLA: "Email + WhatsApp support — response within 24 hours",
-      escalation: "Priority queue for fixes; emergency phone support (paid)"
+      includedSLA: "Priority email and WhatsApp support"
     },
-    faqs: [
-      { q: "Will you manage Google Business updates?", a: "Yes — we create and provide a maintenance plan. Ongoing posting is part of Care+ & above." },
-      { q: "Can you run ads?", a: "We can set up Google Ads and recommend budgets. Ad spend is billed separately." }
-    ],
-    testimonials: [
-      { name: "Amit Verma, Cafe Owner", city: "Noida", quote: "Booster improved our footfall and incoming calls. The automation saved time." }
-    ],
+    faqs: [] as { q: string; a: string }[],
+    testimonials: [] as { name: string; city: string; quote: string }[],
     seoMeta: {
-      title: "Business Booster Plan — Digital Mitra",
-      description: "Priority online visibility, CRM automations and social setup for growing businesses. Get prioritized VyapariHub listing and automation.",
-      keywords: ["business booster plan", "local business SEO", "crm automations india"]
+      title: "Monthly Growth Plan | Digital Mitra",
+      description: "Consistent growth with monthly content, website updates, and lead systems.",
+      keywords: ["monthly growth", "digital marketing"]
     },
     socialShare: {
-      title: "Business Booster — Digital Mitra",
-      description: "Priority listing + automation to grow local business revenue.",
-      image: "/api/og?slug=business-booster-plan"
+      title: "Monthly Growth Plan | Digital Mitra",
+      description: "Consistent growth for your business.",
+      image: "/api/og?slug=monthly-growth-plan"
     },
-    cta: { primary: "Buy Booster", secondary: "Talk to Sales", demoAvailable: true },
-    refundPolicy:
-      "Refunds are considered on a case-by-case basis. If a client cancels during the design phase, partial refunds may apply. See contract for details.",
-    terms:
-      "Boosted listing visibility may depend on category saturation; guaranteed impressions are not promised. Client must provide required assets to meet timelines."
+    cta: { primary: "Subscribe", secondary: "Talk to Sales", demoAvailable: false },
+    refundPolicy: "Cancel anytime.",
+    terms: "Monthly billing."
   },
-
   {
-    slug: "mitra-max-suite",
-    title: "Mitra MAX Suite",
-    price: "₹29,999",
-    mrp: "₹59,999",
-    shortDescription:
-      "Full digital transformation: advanced e-commerce/booking, AI chatbot, lead scoring, inventory billing, branding and 6-month SEO growth program.",
+    slug: "business-automation-system",
+    title: "Business Automation System",
+    price: "₹49,999 setup",
+    isRecurring: true,
+    mrp: "",
+    shortDescription: "Plus ₹9,999/month maintenance. Advanced multi-page website, WhatsApp automation, CRM, and more.",
     hero: {
-      headline: "Turn your business into a growth engine",
-      subHeadline:
-        "Complete automation, analytics, branding and growth strategy — for businesses that want to scale fast and operate efficiently.",
-      ctaPrimary: "Get Mitra MAX",
-      ctaSecondary: "Speak to an Expert"
+      headline: "Complete business automation",
+      subHeadline: "Advanced multi-page website, WhatsApp automation, CRM setup, and lead dashboard.",
+      ctaPrimary: "Get Automation System",
+      ctaSecondary: "Speak to an Expert",
     },
     whatsIncluded: [
-      { title: "E-commerce/Booking website (up to 20 pages)", detail: "Product pages, categories, checkout flow, coupon engine, booking calendar." },
-      { title: "AI Chatbot (Website + WhatsApp)", detail: "Lead capture, FAQs, menu navigation and handover to agent." },
-      { title: "Advanced CRM", detail: "Lead scoring, multi-pipeline support, task automation and sales reporting." },
-      { title: "Inventory-enabled billing", detail: "Stock alerts, SKU management, GST invoicing." },
-      { title: "6-month SEO growth plan", detail: "Content calendar, 6 blogs, technical SEO fixes, backlink outreach." },
-      { title: "Google Ads setup", detail: "Campaign creation, conversion tracking, ad account configuration." },
-      { title: "Full Brand Kit", detail: "Logo, color palette, typography, business card design." },
-      { title: "Reputation management", detail: "Review monitoring and response templates." },
-      { title: "Custom analytics dashboard", detail: "KPI dashboard with conversions, traffic and revenue insights." },
-      { title: "1 year priority support", detail: "Dedicated manager and SLA-backed response." }
+      { title: "Advanced multi-page website", detail: "Custom, fully-featured website." },
+      { title: "WhatsApp automation", detail: "Automated workflows and replies." },
+      { title: "CRM setup", detail: "Customer relationship management." },
+      { title: "Lead dashboard", detail: "Track and manage leads effectively." },
+      { title: "Staff training", detail: "Training for your team to use the system." },
+      { title: "Priority support", detail: "Dedicated support channel." }
     ],
     whatsNotIncluded: [
-      "Large-scale bespoke development beyond agreed scope",
-      "Monthly ad management (available as add-on)",
-      "Onsite photography or video production"
+      "Ad spend",
+      "Custom software development outside scope"
     ],
     benefits: [
-      "Automate sales and reduce manual work",
-      "Data-driven decisions with analytics",
-      "Stronger brand presence and customer experience"
+      "Streamlined operations",
+      "Automated lead management",
+      "Scalable system"
     ],
     targetAudience: [
-      "Established retailers expanding online",
-      "Service businesses with heavy bookings",
-      "Brands wanting consolidated digital operations"
+      "Established businesses",
+      "Enterprises"
     ],
     pricingBreakdown: {
       lumpsum: [
-        { label: "Package fee", amount: "₹29,999" },
-        { label: "SEO Growth program (6 months)", amount: "Included" },
-        { label: "Priority support (1 year)", amount: "Included" }
+        { label: "Setup fee", amount: "₹49,999" },
+        { label: "Maintenance", amount: "₹9,999/month" }
       ],
-      optionalAddons: [
-        { slug: "monthly-ads-management", title: "Ads Management", price: "From ₹9,999/month" },
-        { slug: "custom-dev", title: "Custom Development", price: "Quoted per requirement" }
-      ]
+      optionalAddons: []
     },
-    paymentOptions: ["Card", "UPI", "Bank Transfer", "EMI (partner finance)"],
+    paymentOptions: ["Card", "Bank Transfer"],
     timeline: {
-      totalDays: "10–14",
+      totalDays: "14-21",
       steps: [
-        { dayRange: "Day 0–3", activity: "Deep-dive kickoff, technical scoping and integrations planning" },
-        { dayRange: "Day 4–9", activity: "Design, e-commerce flow & API integrations" },
-        { dayRange: "Day 10–12", activity: "AI chatbot setup, CRM & inventory sync" },
-        { dayRange: "Day 13–14", activity: "Testing, analytics setup, staff training & go-live" }
+        { dayRange: "Phase 1", activity: "Requirements Gathering: Multi-page website planning and CRM mapping" },
+        { dayRange: "Phase 2", activity: "Core Development: Building website and WhatsApp automation flows" },
+        { dayRange: "Phase 3", activity: "CRM & Dashboard Setup: Lead dashboard integration and data sync" },
+        { dayRange: "Phase 4", activity: "Training & Support: Staff training sessions and priority support setup" },
+        { dayRange: "Phase 5", activity: "Final Testing & Go-Live: Quality assurance and system deployment" }
       ]
     },
     onboardingChecklist: [
-      "Full product/service catalog (CSV for products)",
-      "Bank/Gateway account details for payments",
-      "GST & business billing details",
-      "Shipping partner info (if applicable)",
-      "Access to existing accounts (Google, Facebook, previous site)"
+      "Business processes documentation",
+      "Team access",
+      "Integration requirements"
     ],
-    deliveryNotes:
-      "Mitra MAX projects require active client involvement for product data and approvals. Complex integrations may extend timelines and be quoted separately.",
+    deliveryNotes: "Requires active client involvement for setup.",
     technicalStack: {
-      cms: "React / Next.js front-end with headless CMS or WordPress + WooCommerce (client preference)",
-      chatbot: "Third-party AI chatbot integration & WhatsApp Business API connector",
-      crm: "Connected cloud CRM with API support",
-      analytics: "Google Analytics 4 + custom BI dashboard (or Looker/Metabase integration)"
+      cms: "Advanced CMS",
+      crm: "Integrated CRM",
+      automation: "WhatsApp API & Zapier/Make"
     },
     supportSLA: {
-      includedSLA: "Support via dedicated manager — response within 12 hours for critical issues",
-      uptimeCommitment: "We aim for 99.5% uptime on managed hosting (subject to host provider SLA)",
-      escalation: "Direct line to account manager for urgent incidents"
+      includedSLA: "Priority support with dedicated manager"
     },
-    faqs: [
-      { q: "Do you integrate WhatsApp Business API?", a: "Yes. We help with registration and integration; third-party fees and approval timeline apply." },
-      { q: "Who owns the brand assets?", a: "Final design files are delivered to the client on project completion." }
-    ],
-    testimonials: [
-      { name: "Karan Patel, Home Furnishing", city: "Ahmedabad", quote: "Mitra MAX changed how we operate — automation reduced manual errors and improved order fulfillment speed." }
-    ],
+    faqs: [] as { q: string; a: string }[],
+    testimonials: [] as { name: string; city: string; quote: string }[],
     seoMeta: {
-      title: "Mitra MAX Suite — Complete Automation | Digital Mitra",
-      description: "Complete digital transformation for businesses: ecommerce, AI chatbot, CRM automation, SEO growth & branding. Scale your operations.",
-      keywords: ["ecommerce builder india", "ai chatbot small business", "crm automation india"]
+      title: "Business Automation System | Digital Mitra",
+      description: "Advanced multi-page website, WhatsApp automation, CRM setup, and lead dashboard.",
+      keywords: ["business automation", "CRM setup"]
     },
     socialShare: {
-      title: "Mitra MAX by Digital Mitra",
-      description: "Complete automation and growth plan for scaling businesses.",
-      image: "/api/og?slug=mitra-max-suite"
+      title: "Business Automation System | Digital Mitra",
+      description: "Complete business automation for your company.",
+      image: "/api/og?slug=business-automation-system"
     },
-    cta: { primary: "Start Mitra MAX", secondary: "Book a Strategy Call", demoAvailable: true },
-    refundPolicy:
-      "Due to the strategic nature of Mitra MAX, refunds are limited. If delivery milestones are missed due to provider issues, we provide credits or partial refunds according to the contract.",
-    terms:
-      "Third-party API approvals (WhatsApp Business API, payment gateways) are out of our direct control and may affect timelines."
+    cta: { primary: "Start Automation", secondary: "Book a Strategy Call", demoAvailable: true },
+    refundPolicy: "Case-by-case basis.",
+    terms: "Setup fee is non-refundable after work begins."
   }
 ];
+
+
 
 export const supportPlanDetails = [
   {
@@ -505,8 +438,8 @@ export const packages = packageDetails.map(p => ({
   price: p.price,
   description: p.shortDescription,
   features: p.whatsIncluded.slice(0, 6).map(f => f.title),
-  image: `/images/${p.slug}.svg`,
-  popular: p.slug === "business-booster-plan",
+  image: `/images/${p.slug}.png`,
+  popular: p.slug === "monthly-growth-plan",
   longDescription: p.shortDescription
 }));
 

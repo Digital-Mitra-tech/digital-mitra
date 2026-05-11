@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { packageDetails, supportPlanDetails } from "@/lib/data"
 import { AnimatePresence, motion } from "framer-motion"
+import { usePathname } from "next/navigation"
 
 type Message = {
     id: string
@@ -97,6 +98,12 @@ export function RetroChatBot() {
         if (e.key === "Enter") {
             handleSend()
         }
+    }
+
+    const pathname = usePathname()
+
+    if (pathname.startsWith("/digitalmitra-dash") || pathname.startsWith("/login")) {
+        return null
     }
 
     return (

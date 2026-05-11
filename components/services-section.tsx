@@ -1,98 +1,127 @@
-import { Mail, ArrowRight, CheckCircle2 } from "lucide-react"
+"use client"
+
+import { Mail, ArrowRight, CheckCircle2, Zap, Smartphone, Globe } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
 import Link from "next/link"
+import { useContact } from "@/context/contact-context"
 import { packages } from "@/lib/data"
+import { motion } from "framer-motion"
 
 export function ServicesSection() {
+  const { openContactPopup } = useContact()
+
   return (
-    <section id="packages" className="bg-gradient-to-b from-white to-gray-50 py-16 md:py-24">
-      <div className="container mx-auto px-4">
+    <section id="packages" className="py-24 bg-[#F5F5F5] relative overflow-hidden">
+      <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Our <span className="bg-[#5C82A3] text-white px-3 py-2 inline-block border-3 border-black">Packages</span>
-            </h2>
-            <p className="text-gray-600 text-lg font-medium max-w-2xl mx-auto">
-              Choose the perfect plan to grow your business online. Transparent pricing, no hidden fees.
-            </p>
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="inline-flex items-center px-3 py-1.5 bg-[#5C82A3] text-white rounded-full text-[10px] font-black uppercase tracking-widest mb-6 border-2 border-black"
+            >
+              Pricing Plans
+            </motion.div>
+            
+            <motion.h2 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-4xl md:text-5xl font-black mb-6 tracking-tighter leading-[0.9]"
+            >
+              OUR <span className="bg-black text-white px-3 py-1 inline-block">PACKAGES.</span>
+            </motion.h2>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-16">
             {packages.map((service, index) => (
-              <div
+              <motion.div
                 key={index}
-                className={`relative bg-white rounded-3xl overflow-hidden transition-all duration-300 flex flex-col ${service.popular
-                  ? "shadow-[10px_10px_0px] ring-2 ring-black scale-105 z-10"
-                  : "shadow-lg ring-2 ring-black hover:shadow-[10px_10px_0px] hover:-translate-y-2 border border-gray-100"
-                  }`}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="group relative h-full"
               >
-                {service.popular && (
-                  <div className="bg-black text-white text-center py-2 text-sm font-bold tracking-wide uppercase">
-                    Most Popular
-                  </div>
-                )}
+                {/* Offset Background */}
+                <div className="absolute inset-0 bg-black rounded-[2rem] translate-x-2 translate-y-2 group-hover:translate-x-3 group-hover:translate-y-3 transition-transform"></div>
+                
+                <div className={`relative h-full bg-white border-[3px] border-black rounded-[2rem] flex flex-col overflow-hidden transition-transform group-hover:-translate-x-0.5 group-hover:-translate-y-0.5 ${service.popular ? "ring-4 ring-[#5C82A3]/30" : ""}`}>
+                  {service.popular && (
+                    <div className="bg-black text-white text-center py-2 text-[10px] font-black tracking-widest uppercase border-b-[3px] border-black">
+                      Most Popular
+                    </div>
+                  )}
 
-                <div className=" flex-1 flex flex-col">
-                  <div className="mb-6 bg-[#F1F0EE] relative h-48 w-full overflow-hidden">
-                    <Image
-                      src={service.image || "/placeholder.svg"}
-                      alt={service.title}
-                      fill
-                      className="object-contain p-4 transition-transform duration-500 hover:scale-110"
-                    />
-                  </div>
-                  <div className="p-8">
-
-                    <h3 className="text-2xl font-bold text-gray-900 mb-2">{service.title}</h3>
-                    <div className="text-3xl font-bold text-[#5C82A3] mb-4">{service.price}</div>
-                    <p className="text-gray-600 mb-6 leading-relaxed">{service.description}</p>
+                  <div className="p-8 flex-1 flex flex-col">
+                    <h3 className="text-xl font-black mb-1 uppercase tracking-tight">{service.title}</h3>
+                    <div className="text-3xl font-black text-[#5C82A3] mb-4 tracking-tighter">{service.price}</div>
+                    <p className="text-gray-600 font-bold text-xs mb-8 leading-tight">{service.description}</p>
 
                     <div className="space-y-3 mb-8 flex-1">
                       {service.features.map((feature, idx) => (
-                        <div key={idx} className="flex items-start gap-3">
-                          <CheckCircle2 className="w-5 h-5 text-[#5C82A3] shrink-0 mt-0.5" />
-                          <span className="text-sm text-gray-700 font-medium">{feature}</span>
+                        <div key={idx} className="flex items-start gap-2">
+                          <div className="w-5 h-5 rounded-md bg-[#F5F5F5] border-2 border-black flex items-center justify-center shrink-0 mt-0.5">
+                            <CheckCircle2 className="w-3 h-3 text-black" />
+                          </div>
+                          <span className="text-[11px] text-gray-700 font-black uppercase tracking-tight leading-tight">{feature}</span>
                         </div>
                       ))}
                     </div>
 
-                    <Link href={`/packages/${service.slug}`} className="w-full">
-                      <Button
-                        className={`w-full h-12 text-lg font-medium rounded-lg transition-all ${service.popular
-                          ? "bg-[#5C82A3] hover:bg-[#4a6b8a] text-white shadow-lg shadow-[#5C82A3]/20"
-                          : "bg-gray-900 hover:bg-black text-white"
-                          }`}
+                    <Link href="/packages" className="relative group/btn mt-auto block">
+                      <div className="absolute inset-0 bg-black rounded-xl translate-x-1 translate-y-1 group-hover/btn:translate-x-2 group-hover/btn:translate-y-2 transition-transform"></div>
+                      <button
+                        className={`relative w-full py-6 text-lg font-black rounded-xl border-[3px] border-black transition-transform group-hover/btn:-translate-x-0.5 group-hover/btn:-translate-y-0.5 flex items-center justify-center appearance-none cursor-pointer ${service.popular ? "bg-[#5C82A3] text-white hover:bg-[#5C82A3]" : "bg-white text-black hover:bg-white"}`}
                       >
-                        Get Started
-                      </Button>
+                        VIEW DETAILS
+                      </button>
                     </Link>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
 
-          <div className="mt-16 md:mt-48 ring-2 ring-black bg-[#5C82A3] rounded-3xl p-8 md:p-12 shadow-xl relative overflow-hidden">
-            <div className="absolute top-0 right-0 opacity-10 pointer-events-none">
-              <Image src="/images/get-in-touch.svg" width={300} height={300} alt="Background pattern" />
-            </div>
-
-            <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
-              <div className="max-w-2xl">
-                <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">Ready to scale up?</h3>
-                <p className="text-white/90 text-lg md:text-xl font-medium leading-relaxed">
-                  Have questions about our services? Our expert team is ready to discuss the perfect solution for your business needs.
-                </p>
+          <motion.div 
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mt-32 relative group"
+          >
+            <div className="absolute inset-0 bg-black rounded-[3rem] translate-x-3 translate-y-3"></div>
+            <div className="relative bg-[#5C82A3] rounded-[3rem] p-12 md:p-16 text-center text-white border-[5px] border-black overflow-hidden group-hover:translate-x-1 group-hover:translate-y-1 transition-transform">
+              {/* Decorative elements */}
+              <div className="absolute top-0 right-0 opacity-10 pointer-events-none p-10">
+                <Image src="/images/get-in-touch.png" width={200} height={200} alt="Background pattern" className="scale-150 rotate-12" />
               </div>
-              <Button className="bg-white text-[#5C82A3] hover:bg-gray-50 hover:scale-105 rounded-xl px-10 py-6 text-lg font-bold shadow-lg transition-all shrink-0">
-                <Mail className="w-5 h-5 mr-2" />
-                Contact us today
-              </Button>
+
+              <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-12 text-center md:text-left">
+                <div className="max-w-2xl">
+                  <h3 className="text-3xl md:text-5xl font-black mb-4 leading-tight tracking-tighter">READY TO <br />SCALE UP?</h3>
+                  <p className="text-white text-lg md:text-xl font-bold leading-tight opacity-90">
+                    Have questions about our services? Our expert team is ready to discuss the perfect solution for your business needs.
+                  </p>
+                </div>
+                
+                <div className="relative group/btn shrink-0">
+                  <div className="absolute inset-0 bg-black/20 rounded-2xl translate-x-1.5 translate-y-1.5 group-hover/btn:translate-x-3 group-hover/btn:translate-y-3 transition-transform"></div>
+                  <button 
+                    onClick={openContactPopup}
+                    className="relative bg-white text-black hover:bg-white h-auto py-6 px-10 text-xl font-black rounded-2xl border-[4px] border-white shadow-[10px_10px_0px_0px_rgba(0,0,0,0.1)] transition-transform group-hover/btn:-translate-x-0.5 group-hover/btn:-translate-y-0.5 flex items-center justify-center appearance-none cursor-pointer"
+                  >
+                    <Mail className="w-6 h-6 mr-3" />
+                    CONTACT US TODAY
+                  </button>
+                </div>
+              </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
   )
 }
+

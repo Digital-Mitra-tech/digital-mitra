@@ -1,3 +1,7 @@
+"use client"
+
+import { motion } from "framer-motion"
+
 export function LogoMarquee() {
   const items = [
     { logo: "/logos/application.svg", alt: "application" },
@@ -9,14 +13,29 @@ export function LogoMarquee() {
   ]
 
   return (
-    <div className="overflow-hidden">
-      <div className="relative overflow-hidden bg-black py-16 -rotate-[5deg] mt-32 mb-16 min-w-[120vw] -mx-[10vw] left-0">
-        <div className="flex items-center gap-16 animate-marquee whitespace-nowrap">
+    <div className="py-24 bg-white overflow-hidden relative">
+      <div className="container mx-auto px-4 mb-12">
+        <div className="flex items-center gap-4">
+          <div className="h-px bg-black flex-1 opacity-10"></div>
+          <span className="text-[10px] font-black uppercase tracking-[0.3em] text-gray-400">Trusted by innovators</span>
+          <div className="h-px bg-black flex-1 opacity-10"></div>
+        </div>
+      </div>
+      
+      <div className="relative flex overflow-hidden">
+        <div className="flex animate-marquee gap-24 items-center">
           {[...items, ...items, ...items, ...items].map((item, index) => (
-            <img key={index} src={item.logo || "/placeholder.svg"} alt={item.alt} className="h-12 w-auto" />
+            <div key={index} className="grayscale opacity-30 hover:grayscale-0 hover:opacity-100 transition-all duration-500 cursor-pointer group">
+              <img 
+                src={item.logo || "/placeholder.svg"} 
+                alt={item.alt} 
+                className="h-8 md:h-10 w-auto transition-transform group-hover:scale-110" 
+              />
+            </div>
           ))}
         </div>
       </div>
     </div>
   )
 }
+

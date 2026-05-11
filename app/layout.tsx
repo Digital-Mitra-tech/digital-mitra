@@ -65,6 +65,8 @@ import { RetroChatBot } from "@/components/retro-chat-bot"
 import { Navigation } from "@/components/navigation"
 
 import { Preloader } from "@/components/preloader"
+import { ContactProvider } from "@/context/contact-context"
+import { SmoothScroll } from "@/components/ui/smooth-scroll"
 
 export default function RootLayout({
   children,
@@ -73,11 +75,20 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${onest.variable} font-sans antialiased overflow-x-hidden`}>
-        <Preloader />
-        <Navigation />
-        {children}
-        <RetroChatBot />
+      <body className={`${onest.className} antialiased overflow-x-hidden bg-[#F5F5F5] selection:bg-[#5C82A3] selection:text-white`}>
+        {/* Subtle Grain Overlay */}
+        <div className="fixed inset-0 pointer-events-none opacity-[0.015] z-[9999] bg-noise"></div>
+        
+        <ContactProvider>
+          <Preloader />
+          <Navigation />
+          <SmoothScroll>
+            <div className="relative z-10">
+              {children}
+            </div>
+          </SmoothScroll>
+          <RetroChatBot />
+        </ContactProvider>
       </body>
     </html>
   )

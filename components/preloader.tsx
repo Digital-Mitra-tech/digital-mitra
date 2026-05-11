@@ -3,9 +3,11 @@
 import { useEffect, useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import Image from "next/image"
+import { usePathname } from "next/navigation"
 
 export function Preloader() {
     const [isLoading, setIsLoading] = useState(true)
+    const pathname = usePathname()
 
     useEffect(() => {
         // Simulate loading time or wait for window load
@@ -15,6 +17,10 @@ export function Preloader() {
 
         return () => clearTimeout(timer)
     }, [])
+
+    if (pathname.startsWith("/digitalmitra-dash") || pathname.startsWith("/login")) {
+        return null
+    }
 
     return (
         <AnimatePresence>
