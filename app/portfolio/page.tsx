@@ -18,6 +18,11 @@ export const metadata = {
     url: "https://digitalmitra.co/portfolio",
   },
   alternates: { canonical: "https://digitalmitra.co/portfolio" },
+  twitter: {
+    card: "summary_large_image",
+    title: "Portfolio | Digital Mitra — Kerala Digital Agency Projects",
+    description: "Web development, branding, and digital marketing projects for businesses across Kerala and India.",
+  },
 }
 
 export default function PortfolioPage() {

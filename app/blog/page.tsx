@@ -19,6 +19,11 @@ export const metadata = {
     url: "https://digitalmitra.co/blog",
   },
   alternates: { canonical: "https://digitalmitra.co/blog" },
+  twitter: {
+    card: "summary_large_image",
+    title: "Blog | Digital Marketing & SEO Tips for Kerala Businesses",
+    description: "Expert articles on digital marketing, SEO, web development, and business growth for Kerala entrepreneurs.",
+  },
 }
 
 export default async function BlogPage() {

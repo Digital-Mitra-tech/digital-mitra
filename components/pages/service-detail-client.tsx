@@ -1,11 +1,9 @@
 "use client"
 
-import { ArrowLeft, Check, Globe, Rocket, Code, Palette, Megaphone, Cpu, Smartphone, Building2, PenTool, Search, Zap, CreditCard, Mail, ArrowRight } from "lucide-react"
+import { Check, Globe, Rocket, Code, Palette, Megaphone, Cpu, Smartphone, Building2, PenTool, Search, Zap, CreditCard, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import Link from "next/link"
 import { Footer } from "@/components/footer"
 import { useContact } from "@/context/contact-context"
-import { SmoothScrollProvider } from "@/components/smooth-scroll-provider"
 import { ServiceItem } from "@/lib/services-data"
 import { Breadcrumbs } from "@/components/ui/breadcrumbs"
 import { motion } from "framer-motion"
@@ -23,12 +21,7 @@ export function ServiceDetailClient({ service }: ServiceDetailClientProps) {
     const Icon = iconMap[service.icon] || Globe
 
     return (
-        <SmoothScrollProvider>
-            <main className="min-h-screen bg-[#F5F5F5] relative overflow-hidden">
-                {/* Noise Texture */}
-                {/* Subtle Grain Overlay */}
-                <div className="fixed inset-0 pointer-events-none opacity-[0.015] z-[9999] bg-noise"></div>
-
+        <main className="min-h-screen bg-[#F5F5F5] relative overflow-hidden">
                 <div className="pt-24 md:pt-32 relative z-10">
                     <div className="container mx-auto px-4 pb-24">
                         {/* Breadcrumbs */}
@@ -160,6 +153,5 @@ export function ServiceDetailClient({ service }: ServiceDetailClientProps) {
                 </div>
                 <Footer />
             </main>
-        </SmoothScrollProvider>
     )
 }

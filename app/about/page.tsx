@@ -19,6 +19,11 @@ export const metadata: Metadata = {
         url: "https://digitalmitra.co/about",
     },
     alternates: { canonical: "https://digitalmitra.co/about" },
+    twitter: {
+        card: "summary_large_image",
+        title: "About Digital Mitra | Kerala's Digital Agency",
+        description: "Kerala's most trusted digital agency. Team of developers, marketers, and strategists helping Indian businesses grow online.",
+    },
 };
 
 export default function AboutPage() {

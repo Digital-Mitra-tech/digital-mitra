@@ -1,6 +1,7 @@
 import { MetadataRoute } from "next";
 import { packageDetails } from "@/lib/data";
 import { servicesData } from "@/lib/services-data";
+import { portfolioProjects } from "@/lib/portfolio-data";
 import { createClient } from "@/lib/supabase/server";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
@@ -61,5 +62,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     // Sitemap generation continues without blog posts if Supabase is unavailable
   }
 
-  return [...staticRoutes, ...serviceRoutes, ...packageRoutes, ...blogRoutes];
+  const portfolioRoutes = portfolioProjects.map((project) => ({
+    url: `${baseUrl}/portfolio/${project.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  }));
+
+  return [...staticRoutes, ...serviceRoutes, ...packageRoutes, ...portfolioRoutes, ...blogRoutes];
 }

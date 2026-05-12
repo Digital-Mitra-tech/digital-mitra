@@ -40,9 +40,6 @@ export function ServicesListingClient() {
     const { openContactPopup } = useContact()
     return (
         <main className="min-h-screen bg-[#F5F5F5] relative overflow-hidden">
-            {/* Noise Texture Overlay */}
-            <div className="fixed inset-0 pointer-events-none opacity-[0.015] z-[9999] bg-noise"></div>
-
             <div className="pt-24 md:pt-32 relative z-10">
                 <div className="container mx-auto px-4 pb-24">
                     {/* Breadcrumbs */}

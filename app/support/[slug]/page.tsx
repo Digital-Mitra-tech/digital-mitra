@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { Footer } from "@/components/footer"
 import type { Metadata } from "next"
-import { SmoothScrollProvider } from "@/components/smooth-scroll-provider"
 
 export async function generateStaticParams() {
 
@@ -19,15 +18,21 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     const plan = supportPlanDetails.find((p) => p.slug === slug)
     if (!plan) return {}
 
+    const url = `https://digitalmitra.co/support/${slug}`
     return {
         title: plan.seoMeta.title,
         description: plan.seoMeta.description,
+        alternates: { canonical: url },
         openGraph: {
-            title: plan.seoMeta.title, // Fallback to seoMeta since socialShare might be optional in type
+            title: plan.seoMeta.title,
             description: plan.seoMeta.description,
-            // @ts-ignore - Assuming socialShare exists now
-            images: plan.socialShare?.image ? [{ url: plan.socialShare.image }] : undefined
-        }
+            url,
+        },
+        twitter: {
+            card: "summary_large_image" as const,
+            title: plan.seoMeta.title,
+            description: plan.seoMeta.description,
+        },
     }
 }
 
@@ -40,8 +45,34 @@ export default async function SupportPage({ params }: { params: Promise<{ slug: 
         notFound()
     }
 
+    const supportJsonLd = {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": plan.title,
+        "description": plan.seoMeta.description,
+        "url": `https://digitalmitra.co/support/${slug}`,
+        "brand": {
+            "@type": "Brand",
+            "name": "Digital Mitra",
+        },
+        "offers": {
+            "@type": "Offer",
+            "price": plan.price.replace(/[₹,/month]/g, "").trim(),
+            "priceCurrency": "INR",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+                "@type": "Organization",
+                "@id": "https://digitalmitra.co/#organization",
+            },
+        },
+    }
+
     return (
-        <SmoothScrollProvider>
+        <>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(supportJsonLd) }}
+            />
             <main className="min-h-screen bg-[#F5F5F5] text-[#0D0D0D] font-sans">
 
 
@@ -73,7 +104,7 @@ export default async function SupportPage({ params }: { params: Promise<{ slug: 
 
                                     <div className="flex justify-center">
                                         <Button className="bg-[#0B0B0B] text-white hover:bg-black/90 rounded-lg py-6 px-12 text-xl font-bold border-[3px] border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-y-1 hover:shadow-none transition-all h-auto">
-                                            Susbscribe Now
+                                            Subscribe Now
                                             <ArrowRight className="w-6 h-6 ml-2" />
                                         </Button>
                                     </div>
@@ -193,6 +224,6 @@ export default async function SupportPage({ params }: { params: Promise<{ slug: 
                 </div>
                 <Footer />
             </main>
-        </SmoothScrollProvider>
+        </>
     )
 }

@@ -15,16 +15,23 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     if (!pkg) return {}
 
     const url = `https://digitalmitra.co/packages/${slug}`
+    const title = pkg.seoMeta?.title || pkg.title
+    const description = pkg.seoMeta?.description || pkg.shortDescription
     return {
-        title: pkg.seoMeta?.title || pkg.title,
-        description: pkg.seoMeta?.description || pkg.shortDescription,
+        title,
+        description,
         keywords: pkg.seoMeta?.keywords,
         alternates: { canonical: url },
         openGraph: {
-            title: pkg.socialShare?.title || pkg.title,
-            description: pkg.socialShare?.description || pkg.shortDescription,
+            title: pkg.socialShare?.title || title,
+            description: pkg.socialShare?.description || description,
             url,
             images: pkg.socialShare?.image ? [{ url: pkg.socialShare.image }] : undefined,
+        },
+        twitter: {
+            card: "summary_large_image" as const,
+            title,
+            description,
         },
     }
 }
@@ -37,5 +44,35 @@ export default async function PackagePage({ params }: { params: Promise<{ slug: 
         notFound()
     }
 
-    return <PackageDetailClient pkg={pkg} />
+    const packageJsonLd = {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": pkg.title,
+        "description": pkg.seoMeta?.description || pkg.shortDescription,
+        "url": `https://digitalmitra.co/packages/${slug}`,
+        "brand": {
+            "@type": "Brand",
+            "name": "Digital Mitra",
+        },
+        "offers": {
+            "@type": "Offer",
+            "price": pkg.price.replace(/[₹,]/g, "").trim(),
+            "priceCurrency": "INR",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+                "@type": "Organization",
+                "@id": "https://digitalmitra.co/#organization",
+            },
+        },
+    }
+
+    return (
+        <>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(packageJsonLd) }}
+            />
+            <PackageDetailClient pkg={pkg} />
+        </>
+    )
 }
