@@ -6,7 +6,6 @@ import Image from "next/image"
 import { motion } from "framer-motion"
 import { Calendar, Tag, ArrowRight, Search, Sparkles } from "lucide-react"
 import { Footer } from "@/components/footer"
-import { useSmoothScroll } from "@/hooks/use-smooth-scroll"
 
 interface Post {
   id: string
@@ -19,7 +18,6 @@ interface Post {
 }
 
 export function BlogListingClient({ initialPosts }: { initialPosts: Post[] }) {
-  useSmoothScroll()
   const [searchQuery, setSearchQuery] = useState("")
 
   const filteredPosts = initialPosts.filter(post => 

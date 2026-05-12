@@ -14,10 +14,17 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     const service = servicesData.find((s) => s.slug === slug)
     if (!service) return {}
 
+    const url = `https://digitalmitra.co/services/${slug}`
     return {
         title: service.seoMeta?.title || `${service.title} | Digital Mitra`,
         description: service.seoMeta?.description || service.description,
-        keywords: service.seoMeta?.keywords || [service.title, service.category, "Digital Mitra", "Business Services India"],
+        keywords: service.seoMeta?.keywords || [service.title, service.category, "Digital Mitra", "Kerala"],
+        alternates: { canonical: url },
+        openGraph: {
+            title: service.seoMeta?.title || `${service.title} | Digital Mitra`,
+            description: service.seoMeta?.description || service.description,
+            url,
+        },
     }
 }
 

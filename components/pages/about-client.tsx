@@ -4,7 +4,6 @@ import Image from "next/image"
 import { User, CheckCircle, Target, Heart, Zap, Shield, Search, Lightbulb, Code2, Rocket, ArrowRight, Sparkles, Globe, Cpu } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Footer } from "@/components/footer"
-import { useSmoothScroll } from "@/hooks/use-smooth-scroll"
 import Link from "next/link"
 import { useContact } from "@/context/contact-context"
 import { motion, useScroll, useTransform } from "framer-motion"
@@ -40,7 +39,6 @@ function Counter({ value, duration = 2 }: { value: number, duration?: number }) 
 }
 
 export function AboutClient() {
-    useSmoothScroll()
     const { openContactPopup } = useContact()
     const containerRef = useRef(null)
     const { scrollYProgress } = useScroll({

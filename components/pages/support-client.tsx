@@ -4,10 +4,8 @@ import Link from "next/link"
 import { ArrowRight, Check } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Footer } from "@/components/footer"
-import { useSmoothScroll } from "@/hooks/use-smooth-scroll"
 
 export function SupportClient() {
-    useSmoothScroll();
     return (
         <main className="min-h-screen bg-[#F5F5F5] text-[#0D0D0D] font-sans">
 

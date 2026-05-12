@@ -4,6 +4,7 @@ import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { X, Send, Mail, User, MessageSquare, Phone } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { createClient } from "@/lib/supabase/client"
 
 interface ContactPopupProps {
     isOpen: boolean
@@ -17,18 +18,25 @@ export function ContactPopup({ isOpen, onClose }: ContactPopupProps) {
         message: "",
     })
     const [isSubmitting, setIsSubmitting] = useState(false)
+    const [error, setError] = useState<string | null>(null)
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault()
         setIsSubmitting(true)
+        setError(null)
 
-        // Simulate form submission
-        await new Promise(resolve => setTimeout(resolve, 1000))
+        const supabase = createClient()
+        const { error: dbError } = await supabase
+            .from("contacts")
+            .insert([{ name: formData.name, email: formData.email, message: formData.message }])
 
-        console.log("Form submitted:", formData)
         setIsSubmitting(false)
 
-        // Reset form and close
+        if (dbError) {
+            setError("Something went wrong. Please email us at hello@digitalmitra.com")
+            return
+        }
+
         setFormData({ name: "", email: "", message: "" })
         onClose()
     }
@@ -99,6 +107,9 @@ export function ContactPopup({ isOpen, onClose }: ContactPopupProps) {
 
                             {/* Form */}
                             <form onSubmit={handleSubmit} className="space-y-4">
+                                {error && (
+                                    <p className="text-sm text-red-600 font-medium bg-red-50 border border-red-200 rounded-lg px-4 py-3">{error}</p>
+                                )}
                                 {/* Name Field */}
                                 <div>
                                     <label htmlFor="name" className="block text-sm font-bold mb-2 text-gray-700">

@@ -11,10 +11,8 @@ import { ArticlesSection } from "@/components/articles-section";
 import { Footer } from "@/components/footer";
 import { SupportSection } from "@/components/support-section";
 import { FaqSection } from "@/components/faq-section";
-import { useSmoothScroll } from "@/hooks/use-smooth-scroll";
 
 export function HomeClient() {
-    useSmoothScroll();
 
     return (
         <main className="min-h-screen bg-[#FFFFFF]">

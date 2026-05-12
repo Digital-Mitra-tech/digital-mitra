@@ -2,6 +2,7 @@
 
 import { ArrowRight } from "lucide-react"
 import Image from "next/image"
+import Link from "next/link"
 import { motion } from "framer-motion"
 import { useContact } from "@/context/contact-context"
 
@@ -114,16 +115,13 @@ export function PortfolioSection() {
           </div>
 
           <div className="flex justify-center">
-            <div className="relative group">
+            <Link href="/portfolio" className="relative group">
               <div className="absolute inset-0 bg-black rounded-xl translate-x-1 translate-y-1 group-hover:translate-x-2 group-hover:translate-y-2 transition-transform"></div>
-              <button 
-                onClick={openContactPopup}
-                className="relative bg-black text-white px-10 py-5 rounded-xl font-black uppercase tracking-widest text-xs border-[3px] border-black transition-transform group-hover:-translate-x-0.5 group-hover:-translate-y-0.5 flex items-center gap-3 appearance-none cursor-pointer"
-              >
+              <div className="relative bg-black text-white px-10 py-5 rounded-xl font-black uppercase tracking-widest text-xs border-[3px] border-black transition-transform group-hover:-translate-x-0.5 group-hover:-translate-y-0.5 flex items-center gap-3 appearance-none cursor-pointer">
                 Browse Full Portfolio
                 <ArrowRight className="w-4 h-4" />
-              </button>
-            </div>
+              </div>
+            </Link>
           </div>
         </div>
       </div>

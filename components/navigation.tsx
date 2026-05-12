@@ -13,6 +13,7 @@ import { useContact } from "@/context/contact-context"
 const navItems = [
   { id: "home", label: "Home", href: "/" },
   { id: "services", label: "Services", href: "/services" },
+  { id: "portfolio", label: "Portfolio", href: "/portfolio" },
   { id: "packages", label: "Packages", href: "/packages" },
   { id: "blog", label: "Blog", href: "/blog" },
   { id: "about", label: "About", href: "/about" },
@@ -24,7 +25,7 @@ const menuVariants = {
     borderRadius: "19px",
   },
   visible: {
-    height: "18rem",
+    height: "22rem",
     borderRadius: "19px",
   },
 };
@@ -51,6 +52,7 @@ export function Navigation() {
   // Update active item based on pathname path
   useEffect(() => {
     if (pathname === "/services") setActiveItem("services")
+    else if (pathname === "/portfolio") setActiveItem("portfolio")
     else if (pathname === "/packages") setActiveItem("packages")
     else if (pathname === "/blog" || pathname.startsWith("/blog/")) setActiveItem("blog")
     else if (pathname === "/support") setActiveItem("support")

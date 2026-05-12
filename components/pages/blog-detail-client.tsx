@@ -5,7 +5,6 @@ import Image from "next/image"
 import { motion } from "framer-motion"
 import { Calendar, Tag, ArrowLeft, Share2, User } from "lucide-react"
 import { Footer } from "@/components/footer"
-import { useSmoothScroll } from "@/hooks/use-smooth-scroll"
 
 interface Post {
   id: string
@@ -21,7 +20,6 @@ interface Post {
 }
 
 export function BlogDetailClient({ post }: { post: Post }) {
-  useSmoothScroll()
 
   return (
     <main className="min-h-screen bg-[#F5F5F5] selection:bg-[#5C82A3] selection:text-white pt-32">

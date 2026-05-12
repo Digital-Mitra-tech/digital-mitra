@@ -1,10 +1,8 @@
 "use client"
 
 import { Footer } from "@/components/footer"
-import { useSmoothScroll } from "@/hooks/use-smooth-scroll"
 
 export function RefundPolicyClient() {
-    useSmoothScroll()
 
     return (
         <main className="min-h-screen bg-[#F5F5F5] text-[#0D0D0D] font-sans">

@@ -14,15 +14,18 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     const pkg = packageDetails.find((p) => p.slug === slug)
     if (!pkg) return {}
 
+    const url = `https://digitalmitra.co/packages/${slug}`
     return {
         title: pkg.seoMeta?.title || pkg.title,
         description: pkg.seoMeta?.description || pkg.shortDescription,
         keywords: pkg.seoMeta?.keywords,
+        alternates: { canonical: url },
         openGraph: {
             title: pkg.socialShare?.title || pkg.title,
             description: pkg.socialShare?.description || pkg.shortDescription,
-            images: pkg.socialShare?.image ? [{ url: pkg.socialShare.image }] : undefined
-        }
+            url,
+            images: pkg.socialShare?.image ? [{ url: pkg.socialShare.image }] : undefined,
+        },
     }
 }
 

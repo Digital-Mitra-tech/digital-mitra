@@ -7,15 +7,39 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const supabase = await createClient()
   const { data: post } = await supabase
     .from('posts')
-    .select('title, excerpt')
+    .select('title, excerpt, category, published_at')
     .eq('slug', slug)
     .single()
 
   if (!post) return { title: 'Post Not Found' }
 
+  const url = `https://digitalmitra.co/blog/${slug}`
+
   return {
-    title: post.title,
+    title: `${post.title} | Digital Mitra Blog`,
     description: post.excerpt,
+    keywords: [
+      post.category,
+      "digital marketing Kerala",
+      "SEO tips Kerala",
+      "web development Kerala",
+      "Digital Mitra blog",
+    ],
+    alternates: { canonical: url },
+    openGraph: {
+      title: post.title,
+      description: post.excerpt,
+      url,
+      type: "article",
+      publishedTime: post.published_at,
+      authors: ["Digital Mitra Team"],
+      tags: [post.category, "Kerala", "Digital Marketing"],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.excerpt,
+    },
   }
 }
 
