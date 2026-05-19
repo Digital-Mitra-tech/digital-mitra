@@ -3,30 +3,30 @@ import { ServicesListingClient } from "@/components/pages/services-listing-clien
 import { servicesData } from "@/lib/services-data"
 
 export const metadata: Metadata = {
-    title: "Digital Services in Kerala | Web Development, SEO, Marketing, Automation | Digital Mitra",
-    description: "Explore Digital Mitra's complete ecosystem of digital services for Kerala businesses — web development, SEO, digital marketing, AI automation, NFC business cards, branding, and company registration. Serving Kochi, Trivandrum, Calicut, Thrissur, and all of Kerala.",
+    title: "Website Development Services in Kerala | Digital Mitra",
+    description: "Expert website development services, e-commerce web design, SEO, and business automation in Kerala. Scale your business online in Kochi, Trivandrum, Calicut, and Thrissur with Digital Mitra's premium services.",
     keywords: [
+        "website development services in Kerala",
+        "e commerce website development services in kerala",
+        "web development company Kerala",
+        "best website development services in Kerala",
         "digital services Kerala",
         "web development Kerala",
         "SEO services Kerala",
         "digital marketing Kerala",
         "business automation Kerala",
-        "NFC business cards Kerala",
         "brand identity Kerala",
-        "company registration Kerala",
-        "IT services Kerala",
-        "tech services Kochi",
     ],
     openGraph: {
-        title: "Digital Services in Kerala | Digital Mitra",
-        description: "Complete ecosystem of digital services for Kerala businesses — web development, SEO, marketing, AI automation & more.",
+        title: "Website Development Services in Kerala | Digital Mitra",
+        description: "Scale your business online with Kerala's best website development, e-commerce systems, SEO, and automation services.",
         url: "https://digitalmitra.co/services",
     },
     alternates: { canonical: "https://digitalmitra.co/services" },
     twitter: {
         card: "summary_large_image",
-        title: "Digital Services in Kerala | Digital Mitra",
-        description: "Complete ecosystem of digital services for Kerala businesses — web development, SEO, marketing, AI automation & more.",
+        title: "Website Development Services in Kerala | Digital Mitra",
+        description: "Expert website development, e-commerce setups, and SEO services in Kerala by Digital Mitra.",
     },
 }
 
