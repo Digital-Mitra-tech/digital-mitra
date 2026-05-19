@@ -1,5 +1,6 @@
 import type React from "react"
 import type { Metadata } from "next"
+import Script from "next/script"
 
 import "./globals.css"
 
@@ -157,6 +158,19 @@ export default function RootLayout({
         />
       </head>
       <body className={`${onest.className} antialiased overflow-x-hidden bg-[#F5F5F5] selection:bg-[#5C82A3] selection:text-white`}>
+        {/* Google Analytics (gtag.js) */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-3YPPZ47RGC"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-3YPPZ47RGC');
+          `}
+        </Script>
         <div className="fixed inset-0 pointer-events-none opacity-[0.015] z-[9999] bg-noise"></div>
 
         <ContactProvider>
