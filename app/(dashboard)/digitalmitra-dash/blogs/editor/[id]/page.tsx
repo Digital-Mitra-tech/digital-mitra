@@ -2,17 +2,7 @@
 
 import { useEffect, useState, use } from "react"
 import { useRouter } from "next/navigation"
-import { 
-  ArrowLeft,
-  Save,
-  Eye,
-  Type,
-  Link as LinkIcon,
-  Image as ImageIcon,
-  CheckCircle2,
-  Clock,
-  X
-} from "lucide-react"
+import { ArrowLeft, Save, Link as LinkIcon, Image as ImageIcon, Clock } from "lucide-react"
 import { createClient } from "@/lib/supabase/client"
 import { cn } from "@/lib/utils"
 import { toast } from "sonner"
@@ -102,9 +92,12 @@ export default function BlogEditorPage({ params }: { params: Promise<{ id: strin
     }
 
     setIsLoading(true)
+    // Only set published_at when first publishing — don't overwrite existing publish date
     const submissionData = {
       ...formData,
-      published_at: formData.status === 'published' ? new Date().toISOString() : null
+      published_at: formData.status === 'published'
+        ? (isNew ? new Date().toISOString() : undefined)
+        : null,
     }
 
     if (!isNew) {

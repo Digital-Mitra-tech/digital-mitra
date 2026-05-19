@@ -2,25 +2,11 @@
 
 import { useEffect, useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { 
-  Plus, 
-  Search, 
-  Building2, 
-  Mail, 
-  Phone, 
-  Globe,
-  MoreVertical,
-  ChevronRight,
-  ExternalLink,
-  X,
-  Edit3,
-  Trash2,
-  User,
-  MapPin
-} from "lucide-react"
+import { Plus, Search, Building2, Mail, Phone, ChevronRight, X, Edit3, Trash2, User, MapPin } from "lucide-react"
 import { createClient } from "@/lib/supabase/client"
 import { cn } from "@/lib/utils"
 import { toast } from "sonner"
+import Link from "next/link"
 
 interface Client {
   id: string
@@ -228,10 +214,13 @@ export default function ClientsPage() {
             </div>
 
             <div className="mt-8 pt-6 border-t border-slate-100 dark:border-slate-800 flex items-center justify-end relative">
-              <button className="flex items-center gap-2 px-3 py-1.5 bg-slate-50 dark:bg-slate-800 text-indigo-600 dark:text-indigo-400 text-xs font-bold rounded-xl hover:bg-indigo-50 dark:hover:bg-indigo-900/20 transition-all border border-slate-100 dark:border-slate-700">
+              <Link
+                href={`/digitalmitra-dash/projects?client=${client.id}`}
+                className="flex items-center gap-2 px-3 py-1.5 bg-slate-50 dark:bg-slate-800 text-indigo-600 dark:text-indigo-400 text-xs font-bold rounded-xl hover:bg-indigo-50 dark:hover:bg-indigo-900/20 transition-all border border-slate-100 dark:border-slate-700"
+              >
                 View Projects
                 <ChevronRight className="w-3.5 h-3.5" />
-              </button>
+              </Link>
             </div>
           </motion.div>
         ))}

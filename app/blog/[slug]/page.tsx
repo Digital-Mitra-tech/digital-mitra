@@ -69,5 +69,15 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     author = profile
   }
 
-  return <BlogDetailClient post={{ ...post, author }} />
+  // Fetch related posts — same category, exclude current
+  const { data: relatedPosts } = await supabase
+    .from('posts')
+    .select('slug, title, excerpt, featured_image, category, published_at')
+    .eq('status', 'published')
+    .eq('category', post.category)
+    .neq('slug', slug)
+    .order('published_at', { ascending: false })
+    .limit(3)
+
+  return <BlogDetailClient post={{ ...post, author }} relatedPosts={relatedPosts || []} />
 }

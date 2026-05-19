@@ -1,25 +1,12 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useState, Suspense } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { 
-  Plus, 
-  Search, 
-  Calendar, 
-  CheckCircle2, 
-  Clock, 
-  AlertCircle,
-  BarChart3,
-  ExternalLink,
-  X,
-  Edit3,
-  Trash2,
-  DollarSign,
-  Briefcase
-} from "lucide-react"
+import { Plus, Search, Calendar, X, Edit3, Trash2, DollarSign, Briefcase } from "lucide-react"
 import { createClient } from "@/lib/supabase/client"
 import { cn } from "@/lib/utils"
 import { toast } from "sonner"
+import { useSearchParams } from "next/navigation"
 
 interface Project {
   id: string
@@ -37,14 +24,16 @@ interface Client {
   business_name: string
 }
 
-export default function ProjectsPage() {
+function ProjectsPageContent() {
   const [projects, setProjects] = useState<Project[]>([])
   const [clients, setClients] = useState<Client[]>([])
   const [isLoading, setIsLoading] = useState(true)
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [editingProject, setEditingProject] = useState<Project | null>(null)
   const [searchQuery, setSearchQuery] = useState("")
-  
+  const searchParams = useSearchParams()
+  const clientFilter = searchParams.get("client")
+
   const supabase = createClient()
 
   const [formData, setFormData] = useState({
@@ -86,10 +75,12 @@ export default function ProjectsPage() {
     setIsLoading(false)
   }
 
-  const filteredProjects = projects.filter(project => 
-    project.project_name.toLowerCase().includes(searchQuery.toLowerCase()) || 
-    project.client_name?.toLowerCase().includes(searchQuery.toLowerCase())
-  )
+  const filteredProjects = projects.filter(project => {
+    const matchSearch = project.project_name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      project.client_name?.toLowerCase().includes(searchQuery.toLowerCase())
+    const matchClient = !clientFilter || project.client_id === clientFilter
+    return matchSearch && matchClient
+  })
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -176,12 +167,20 @@ export default function ProjectsPage() {
     'On Hold': 'bg-rose-100 text-rose-600 dark:bg-rose-500/10 dark:text-rose-400',
   }
 
+  const filterClientName = clientFilter
+    ? clients.find(c => c.id === clientFilter)?.business_name
+    : null
+
   return (
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h2 className="text-2xl font-bold text-slate-900 dark:text-white">Active Projects</h2>
-          <p className="text-slate-500 dark:text-slate-400 text-sm">Monitor progress and deadlines for all client work</p>
+          <h2 className="text-2xl font-bold text-slate-900 dark:text-white">
+            {filterClientName ? `${filterClientName}'s Projects` : "Active Projects"}
+          </h2>
+          <p className="text-slate-500 dark:text-slate-400 text-sm">
+            {filterClientName ? `Showing projects for ${filterClientName}` : "Monitor progress and deadlines for all client work"}
+          </p>
         </div>
         <button 
           onClick={() => openModal()}
@@ -203,6 +202,15 @@ export default function ProjectsPage() {
         />
       </div>
 
+      {!isLoading && filteredProjects.length === 0 && (
+        <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-12 text-center shadow-sm">
+          <div className="w-16 h-16 bg-slate-100 dark:bg-slate-800 rounded-full flex items-center justify-center mx-auto mb-4">
+            <Briefcase className="w-8 h-8 text-slate-400" />
+          </div>
+          <h3 className="text-lg font-semibold text-slate-900 dark:text-white">No projects found</h3>
+          <p className="text-slate-500 dark:text-slate-400 mt-1 text-sm">Create a project to get started.</p>
+        </div>
+      )}
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
         {isLoading ? (
           [1, 2, 3].map(i => (
@@ -412,5 +420,17 @@ export default function ProjectsPage() {
         )}
       </AnimatePresence>
     </div>
+  )
+}
+
+export default function ProjectsPage() {
+  return (
+    <Suspense fallback={
+      <div className="flex items-center justify-center min-h-[400px]">
+        <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-indigo-600"></div>
+      </div>
+    }>
+      <ProjectsPageContent />
+    </Suspense>
   )
 }

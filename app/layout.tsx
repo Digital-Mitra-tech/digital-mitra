@@ -78,6 +78,8 @@ import { Navigation } from "@/components/navigation"
 import { Preloader } from "@/components/preloader"
 import { ContactProvider } from "@/context/contact-context"
 import { SmoothScroll } from "@/components/ui/smooth-scroll"
+import { CookieConsent } from "@/components/cookie-consent"
+import { WhatsAppButton } from "@/components/whatsapp-button"
 
 const organizationJsonLd = {
   "@context": "https://schema.org",
@@ -92,7 +94,7 @@ const organizationJsonLd = {
       "priceRange": "₹₹",
       "currenciesAccepted": "INR",
       "paymentAccepted": "Cash, Credit Card, UPI, Bank Transfer",
-      "telephone": "+91-8289835902",
+      "telephone": "+91-7907935902",
       "email": "hello@digitalmitra.com",
       "openingHours": "Mo-Sa 09:00-18:00",
       "sameAs": [
@@ -166,6 +168,8 @@ export default function RootLayout({
             </div>
           </SmoothScroll>
           <RetroChatBot />
+          <CookieConsent />
+          <WhatsAppButton />
         </ContactProvider>
       </body>
     </html>

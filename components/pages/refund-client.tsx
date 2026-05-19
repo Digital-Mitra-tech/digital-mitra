@@ -54,7 +54,7 @@ export function RefundPolicyClient() {
                             <p>
                                 If you have any questions about this Refund Policy, please contact us at: <br />
                                 Email: billing@digitalmitra.com <br />
-                                Phone: +91-8289835902
+                                Phone: +91-7907935902
                             </p>
                         </div>
                     </div>

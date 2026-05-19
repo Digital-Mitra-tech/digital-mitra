@@ -63,7 +63,7 @@ export function PrivacyPolicyClient() {
                             <p>
                                 If you have any questions about this Privacy Policy, please contact us at: <br />
                                 Email: privacy@digitalmitra.com <br />
-                                Phone: +91-8289835902
+                                Phone: +91-7907935902
                             </p>
                         </div>
                     </div>

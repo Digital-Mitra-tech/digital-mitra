@@ -2,18 +2,7 @@
 
 import { useEffect, useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { 
-  Plus, 
-  Search, 
-  Star, 
-  Edit3, 
-  Trash2,
-  Calendar,
-  User,
-  Quote,
-  X,
-  Check
-} from "lucide-react"
+import { Plus, Star, Edit3, Trash2, User, Quote, X } from "lucide-react"
 import { createClient } from "@/lib/supabase/client"
 import { cn } from "@/lib/utils"
 import { toast } from "sonner"
@@ -146,6 +135,15 @@ export default function ReviewsPage() {
         </button>
       </div>
 
+      {!isLoading && reviews.length === 0 && (
+        <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-12 text-center shadow-sm">
+          <div className="w-16 h-16 bg-slate-100 dark:bg-slate-800 rounded-full flex items-center justify-center mx-auto mb-4">
+            <Star className="w-8 h-8 text-slate-400" />
+          </div>
+          <h3 className="text-lg font-semibold text-slate-900 dark:text-white">No reviews yet</h3>
+          <p className="text-slate-500 dark:text-slate-400 mt-1 text-sm">Add your first client testimonial.</p>
+        </div>
+      )}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {isLoading ? (
           [1, 2, 3].map(i => (

@@ -2,17 +2,7 @@
 
 import { useEffect, useState } from "react"
 import { motion } from "framer-motion"
-import { 
-  Plus, 
-  Search, 
-  FileText, 
-  Eye, 
-  Edit3, 
-  Trash2,
-  Calendar,
-  Tag,
-  ExternalLink
-} from "lucide-react"
+import { Plus, Search, FileText, Edit3, Trash2, Calendar, Tag, ExternalLink } from "lucide-react"
 import { createClient } from "@/lib/supabase/client"
 import { cn } from "@/lib/utils"
 import { toast } from "sonner"
@@ -35,6 +25,7 @@ export default function BlogsPage() {
   const [posts, setPosts] = useState<Post[]>([])
   const [isLoading, setIsLoading] = useState(true)
   const [searchQuery, setSearchQuery] = useState("")
+  const [statusFilter, setStatusFilter] = useState<"all" | "published" | "draft">("all")
   const router = useRouter()
   const supabase = createClient()
 
@@ -55,10 +46,12 @@ export default function BlogsPage() {
     setIsLoading(false)
   }
 
-  const filteredPosts = posts.filter(post => 
-    post.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
-    post.category.toLowerCase().includes(searchQuery.toLowerCase())
-  )
+  const filteredPosts = posts.filter(post => {
+    const matchesSearch = post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      post.category.toLowerCase().includes(searchQuery.toLowerCase())
+    const matchesStatus = statusFilter === "all" || post.status === statusFilter
+    return matchesSearch && matchesStatus
+  })
 
   const handleDelete = async (id: string) => {
     if (!confirm("Are you sure you want to delete this post?")) return
@@ -92,16 +85,30 @@ export default function BlogsPage() {
       </div>
 
       <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden">
-        <div className="p-4 border-b border-slate-200 dark:border-slate-800">
-          <div className="relative max-w-md">
+        <div className="p-4 border-b border-slate-200 dark:border-slate-800 flex flex-col md:flex-row md:items-center gap-3">
+          <div className="relative flex-1 max-w-md">
             <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
-            <input 
-              type="text" 
-              placeholder="Search articles..." 
+            <input
+              type="text"
+              placeholder="Search articles..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="w-full pl-10 pr-4 py-2 bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-xl text-sm outline-none focus:ring-2 focus:ring-indigo-500 transition-all"
             />
+          </div>
+          <div className="flex bg-slate-100 dark:bg-slate-800 p-1 rounded-xl w-fit">
+            {(["all", "published", "draft"] as const).map(s => (
+              <button
+                key={s}
+                onClick={() => setStatusFilter(s)}
+                className={cn(
+                  "px-4 py-1.5 text-xs font-bold rounded-lg capitalize transition-all",
+                  statusFilter === s ? "bg-white dark:bg-slate-700 shadow-sm text-indigo-600" : "text-slate-400"
+                )}
+              >
+                {s}
+              </button>
+            ))}
           </div>
         </div>
 
@@ -192,6 +199,15 @@ export default function BlogsPage() {
             </tbody>
           </table>
         </div>
+        {!isLoading && filteredPosts.length === 0 && (
+          <div className="p-12 text-center">
+            <div className="w-16 h-16 bg-slate-100 dark:bg-slate-800 rounded-full flex items-center justify-center mx-auto mb-4">
+              <FileText className="w-8 h-8 text-slate-400" />
+            </div>
+            <h3 className="text-lg font-semibold text-slate-900 dark:text-white">No articles found</h3>
+            <p className="text-slate-500 dark:text-slate-400 mt-1 text-sm">Try a different search or filter.</p>
+          </div>
+        )}
       </div>
     </div>
   )

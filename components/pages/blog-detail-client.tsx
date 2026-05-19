@@ -3,7 +3,7 @@
 import Link from "next/link"
 import Image from "next/image"
 import { motion } from "framer-motion"
-import { Calendar, Tag, ArrowLeft, Share2, User } from "lucide-react"
+import { Calendar, ArrowLeft, Share2, User, ArrowRight } from "lucide-react"
 import { Footer } from "@/components/footer"
 
 interface Post {
@@ -19,13 +19,19 @@ interface Post {
   }
 }
 
-export function BlogDetailClient({ post }: { post: Post }) {
+interface RelatedPost {
+  slug: string
+  title: string
+  excerpt: string
+  featured_image: string
+  category: string
+  published_at: string
+}
+
+export function BlogDetailClient({ post, relatedPosts = [] }: { post: Post; relatedPosts?: RelatedPost[] }) {
 
   return (
     <main className="min-h-screen bg-[#F5F5F5] selection:bg-[#5C82A3] selection:text-white pt-32">
-      {/* Noise Texture */}
-      <div className="fixed inset-0 pointer-events-none opacity-[0.015] z-[9999] bg-noise"></div>
-
       <div className="container mx-auto px-4 relative z-10">
         {/* Back Button */}
         <div className="max-w-4xl mx-auto mb-12">
@@ -131,6 +137,73 @@ export function BlogDetailClient({ post }: { post: Post }) {
           </div>
         </article>
       </div>
+
+      {/* Related Posts */}
+      {relatedPosts.length > 0 && (
+        <section className="bg-white border-t-[3px] border-black py-20">
+          <div className="container mx-auto px-4">
+            <div className="max-w-7xl mx-auto">
+              <div className="flex items-center justify-between mb-12">
+                <h2 className="text-3xl md:text-4xl font-black tracking-tighter uppercase">
+                  MORE FROM <span className="text-[#5C82A3]">{post.category}</span>
+                </h2>
+                <Link
+                  href="/blog"
+                  className="hidden md:inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-widest hover:text-[#5C82A3] transition-colors"
+                >
+                  View All Posts <ArrowRight className="w-3 h-3" />
+                </Link>
+              </div>
+
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {relatedPosts.map((related, idx) => (
+                  <motion.div
+                    key={related.slug}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: idx * 0.1 }}
+                    viewport={{ once: true }}
+                    className="group relative"
+                  >
+                    <div className="absolute inset-0 bg-black rounded-[2rem] translate-x-1.5 translate-y-1.5 group-hover:translate-x-2.5 group-hover:translate-y-2.5 transition-transform" />
+                    <Link
+                      href={`/blog/${related.slug}`}
+                      className="relative flex flex-col bg-[#F5F5F5] border-[3px] border-black rounded-[2rem] overflow-hidden group-hover:-translate-x-0.5 group-hover:-translate-y-0.5 transition-transform h-full"
+                    >
+                      <div className="relative aspect-video overflow-hidden border-b-[3px] border-black">
+                        <Image
+                          src={related.featured_image || "/images/placeholder.svg"}
+                          alt={related.title}
+                          fill
+                          className="object-cover group-hover:scale-105 transition-transform duration-500"
+                        />
+                        <span className="absolute top-4 left-4 px-3 py-1 bg-[#FFE66D] text-black text-[10px] font-black uppercase tracking-widest rounded-full border-2 border-black">
+                          {related.category}
+                        </span>
+                      </div>
+                      <div className="p-6 flex flex-col flex-1">
+                        <p className="text-[10px] font-black uppercase tracking-widest text-gray-400 mb-3">
+                          {new Date(related.published_at).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })}
+                        </p>
+                        <h3 className="text-lg font-black uppercase tracking-tight leading-tight mb-3 line-clamp-2">
+                          {related.title}
+                        </h3>
+                        <p className="text-sm text-gray-600 font-bold leading-snug line-clamp-2 flex-1">
+                          {related.excerpt}
+                        </p>
+                        <div className="mt-4 inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-[#5C82A3]">
+                          Read More <ArrowRight className="w-3 h-3" />
+                        </div>
+                      </div>
+                    </Link>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
       <Footer />
     </main>
   )

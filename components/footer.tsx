@@ -87,6 +87,7 @@ export function Footer() {
                 <li><Link href="/portfolio" className="hover:text-[#5C82A3] transition-colors flex items-center gap-1 group">Portfolio <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-all" /></Link></li>
                 <li><Link href="/blog" className="hover:text-[#5C82A3] transition-colors flex items-center gap-1 group">Blog <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-all" /></Link></li>
                 <li><Link href="/about" className="hover:text-[#5C82A3] transition-colors flex items-center gap-1 group">Our Story <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-all" /></Link></li>
+                <li><Link href="/faq" className="hover:text-[#5C82A3] transition-colors flex items-center gap-1 group">FAQ <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-all" /></Link></li>
               </ul>
             </div>
 
@@ -103,7 +104,7 @@ export function Footer() {
                 </div>
                 <div className="flex flex-col gap-1">
                   <span className="text-[10px] font-black text-gray-400 uppercase tracking-widest">Call us</span>
-                  <a href="tel:+918289835902" className="text-black font-black text-[11px] uppercase hover:text-[#5C82A3] transition-colors">+91 82898 35902</a>
+                  <a href="tel:+917907935902" className="text-black font-black text-[11px] uppercase hover:text-[#5C82A3] transition-colors">+91 79079 35902</a>
                 </div>
                 <button 
                   onClick={scrollToTop}

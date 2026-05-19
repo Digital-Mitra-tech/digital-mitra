@@ -2,23 +2,7 @@
 
 import { useEffect, useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { 
-  Plus, 
-  Search, 
-  Filter, 
-  MoreHorizontal,
-  Mail,
-  Phone,
-  Calendar,
-  ChevronDown,
-  X,
-  Edit3,
-  Trash2,
-  CheckCircle2,
-  Clock,
-  User,
-  MessageSquare
-} from "lucide-react"
+import { Plus, Search, Mail, Phone, Calendar, X, Edit3, Trash2, User, MessageSquare } from "lucide-react"
 import { createClient } from "@/lib/supabase/client"
 import { cn } from "@/lib/utils"
 import { toast } from "sonner"
