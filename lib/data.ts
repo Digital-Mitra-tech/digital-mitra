@@ -7,24 +7,25 @@
 export const packageDetails = [
   {
     slug: "launch-plan",
-    title: "Launch Plan",
+    title: "The 7-Day Launch Plan",
     price: "₹12,999",
     isRecurring: false,
     mrp: "",
-    shortDescription: "Everything a new business needs to launch online quickly: 1-page website, social media, and Google Business Profile setup.",
+    shortDescription: "A complete 'done-for-you' digital presence package to get your business online, build instant trust, and drive real enquiries in just one week.",
     hero: {
-      headline: "Launch your business online in 7 days",
-      subHeadline: "Professional 1-page website, brand identity, and social media setup — fast, simple, affordable.",
-      ctaPrimary: "Get Launch Plan",
-      ctaSecondary: "Request Demo",
+      headline: "Take Your Business Online & Start Getting Customers in 7 Days",
+      subHeadline: "Stop losing potential customers to your competitors. We build your entire digital presence from scratch—fast, professional, and optimized for growth.",
+      ctaPrimary: "Book Your Launch Slot",
+      ctaSecondary: "Chat with Us on WhatsApp",
     },
     whatsIncluded: [
-      { title: "1-page professional website", detail: "Custom designed one-page website." },
-      { title: "Logo + brand identity", detail: "Professional logo and brand guidelines." },
-      { title: "Instagram & Facebook setup", detail: "Complete profile setup for social media." },
-      { title: "WhatsApp Business setup", detail: "Business profile and automated replies." },
-      { title: "Google Business Profile setup", detail: "Local SEO listing." },
-      { title: "5 content posts", detail: "Initial content for your social media." }
+      { title: "High-Converting Professional Website", detail: "Mobile-first, lightning fast, with integrated Click-to-WhatsApp and basic SEO foundation." },
+      { title: "Google Business Profile Domination", detail: "Complete setup, verification, and local SEO optimization so you rank on Google Maps and Search." },
+      { title: "Automated WhatsApp Business Machine", detail: "Professional setup with auto-replies, away messages, and a digital product catalogue (up to 10 items)." },
+      { title: "Optimized Social Media Engine", detail: "Fully branded Facebook & Instagram profile setup with optimized bios and contact buttons." },
+      { title: "Premium Brand Identity & Logo Design", detail: "A custom logo (with 2 revision rounds) and cohesive branding across all platforms." },
+      { title: "Launch-Ready Content Pack", detail: "5 professionally designed social media posts with engaging captions ready to publish immediately." },
+      { title: "Premium Domain Registration", detail: "Free .com or .in domain included for the 1st year." }
     ],
     whatsNotIncluded: [
       "Ongoing ad spend",
@@ -32,18 +33,19 @@ export const packageDetails = [
       "Advanced CRM"
     ],
     benefits: [
-      "Quick 7-day delivery",
-      "All-in-one setup",
-      "Professional brand identity"
+      "Launch quickly in just 7 working days",
+      "Look like a million bucks (without spending it)",
+      "Automated lead capture system in place"
     ],
     targetAudience: [
-      "New businesses",
-      "Freelancers",
-      "Local shops"
+      "New Businesses & Startups",
+      "Local Service Providers (Plumbers, Salons, etc.)",
+      "Retail Shops & Restaurants",
+      "Clinics & Consultants"
     ],
     pricingBreakdown: {
       lumpsum: [
-        { label: "One-time fee", amount: "₹12,999" }
+        { label: "One-time investment", amount: "₹12,999" }
       ],
       optionalAddons: []
     },
@@ -51,39 +53,40 @@ export const packageDetails = [
     timeline: {
       totalDays: "7",
       steps: [
-        { dayRange: "Day 1", activity: "Brand Discovery & Strategy: Finalize logo identity and social media details" },
-        { dayRange: "Day 2-4", activity: "Design & Content Preparation: Create 1-page website layout and draft content posts" },
-        { dayRange: "Day 5", activity: "Development & Integration: Setup website, WhatsApp Business, and social profiles" },
-        { dayRange: "Day 6", activity: "Optimization & Quality Check: Google Business Profile setup and testing" },
-        { dayRange: "Day 7", activity: "Final Handover & Launch: Go-live and staff walkthrough" }
+        { dayRange: "Day 1-2", activity: "Brand Discovery: Finalize logo, brand identity, and gather business details." },
+        { dayRange: "Day 3-4", activity: "Design & Development: Build the high-converting website and create social media creatives." },
+        { dayRange: "Day 5", activity: "Systems Integration: Setup WhatsApp Business, auto-replies, and digital catalogue." },
+        { dayRange: "Day 6", activity: "Profile Optimization: Google Business Profile setup, verification, and Social Media branding." },
+        { dayRange: "Day 7", activity: "Final Handover & Launch: You are officially open for business online!" }
       ]
     },
     onboardingChecklist: [
-      "Business name and details",
-      "Preferred domain",
-      "Images and content"
+      "Basic business information & contact details",
+      "Preferred domain name",
+      "List of up to 10 products/services for WhatsApp",
+      "Any existing images/logos"
     ],
-    deliveryNotes: "Delivered in 7 working days.",
+    deliveryNotes: "Delivered fully within 7 working days upon receipt of onboarding details.",
     technicalStack: {
-      cms: "Modern web stack",
-      hosting: "Included"
+      cms: "Modern, high-speed web stack",
+      hosting: "Included for 1st year"
     },
     supportSLA: {
-      includedSLA: "Basic support during setup"
+      includedSLA: "Basic support during the 7-day setup phase"
     },
     faqs: [] as { q: string; a: string }[],
     testimonials: [] as { name: string; city: string; quote: string }[],
     seoMeta: {
-      title: "Launch Plan | Digital Mitra",
-      description: "Launch your business online with our 1-page professional website and social media setup.",
-      keywords: ["launch plan", "website setup"]
+      title: "7-Day Launch Plan | Get Your Business Online | Digital Mitra",
+      description: "Get your business online in 7 days with our complete Launch Plan. Includes website, logo, Google Business Profile, and WhatsApp automation.",
+      keywords: ["launch plan", "website setup", "business online", "digital presence package"]
     },
     socialShare: {
-      title: "Launch Plan | Digital Mitra",
-      description: "Launch your business online.",
+      title: "The 7-Day Launch Plan | Digital Mitra",
+      description: "Stop losing customers to your competitors. Get your business online in 7 days.",
       image: "/api/og?slug=launch-plan"
     },
-    cta: { primary: "Buy Now", secondary: "Schedule a call", demoAvailable: false },
+    cta: { primary: "Launch Now", secondary: "Schedule a Call", demoAvailable: false },
     refundPolicy: "Standard refund policy.",
     terms: "Standard T&Cs apply."
   },
